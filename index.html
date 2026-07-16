@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta para Cabanas do Navia · Kulmen Visuals</title>
+<meta name="description" content="Más reservas, en todas las temporadas, y a mejor precio. Fotografía, vídeo y dron FPV cinematográfico para alojamientos rurales premium.">
+<meta property="og:title" content="Propuesta para Cabanas do Navia · Kulmen Visuals">
+<meta property="og:description" content="Más reservas, en todas las temporadas, y a mejor precio.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2309090b'/%3E%3Ctext x='32' y='45' font-family='sans-serif' font-size='38' font-weight='700' fill='%23f59715' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Sistema Kulmen — extraído de kulmenvisuals.com */
+    --negro: #09090b;        /* fondo base, zinc-950 */
+    --carbon: #131316;       /* superficie elevada */
+    --carbon-2: #18181b;     /* superficie alternativa */
+    --brasa: #180c02;        /* negro-ámbar profundo (panel de oferta) */
+    --ambar: #f59715;        /* acento primario */
+    --ambar-claro: #f7ab3d;  /* hover / degradado */
+    --dolor: #e2543f;        /* acento de dolor/riesgo — solo diagnóstico */
+    --dolor-soft: rgba(226,84,63,.12);
+    --hueso: #fafafa;        /* titulares */
+    --niebla: #a1a1aa;       /* cuerpo de texto */
+    --niebla-2: #86868f;     /* texto secundario */
+    --linea: rgba(250,250,250,.08);
+    --linea-fuerte: rgba(250,250,250,.14);
+    --r-md: 16px;
+    --r-lg: 24px;
+    --ease: cubic-bezier(.16,1,.3,1);
+    --grotesk: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --mono: 'Space Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--grotesk);
+    background: var(--negro);
+    color: var(--niebla);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection { background: rgba(245,151,21,.35); color: var(--hueso); }
+  img { max-width: 100%; }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--ambar); outline-offset: 3px; border-radius: 4px;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+  .wrap-narrow { max-width: 840px; margin: 0 auto; padding: 0 32px; }
+
+  /* ============ TOPBAR ============ */
+  .topbar {
+    position: fixed; inset: 0 0 auto 0; z-index: 60;
+    padding: 20px 32px 0;
+  }
+  .topbar-inner {
+    position: relative;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    max-width: 1180px; margin: 0 auto; padding: 10px 18px 10px 22px;
+    border-radius: 9999px;
+    background: rgba(24,24,27,.55);
+    border: 1px solid rgba(250,250,250,.1);
+    box-shadow: 0 12px 34px rgba(0,0,0,.28);
+    backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%);
+    transition: background .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .topbar.scrolled .topbar-inner {
+    background: rgba(18,18,21,.78);
+    border-color: rgba(250,250,250,.14);
+    box-shadow: 0 16px 40px rgba(0,0,0,.4);
+  }
+  .logo { display: flex; align-items: center; gap: 14px; min-width: 0; text-decoration: none; }
+  .logo-mark { width: 64px; height: 64px; display: grid; place-items: center; overflow: hidden; flex-shrink: 0; }
+  .logo-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .logo-word { height: 30px; width: auto; display: block; }
+  .top-nav { display: flex; align-items: center; gap: 2px; margin-left: auto; }
+  .top-nav a {
+    color: rgba(250,250,250,.88); text-decoration: none; font-size: 13px; font-weight: 500;
+    letter-spacing: .01em; padding: 9px 14px; border-radius: 999px;
+    transition: color .25s, background .25s;
+    text-shadow: 0 1px 10px rgba(9,9,11,.55);
+  }
+  .top-nav a:hover { color: var(--hueso); background: rgba(250,250,250,.06); }
+  .top-nav a.top-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; border-radius: 9999px; margin-left: 14px;
+    background: var(--ambar); color: var(--negro); text-decoration: none;
+    font-size: 13px; font-weight: 700; letter-spacing: .01em;
+    transition: background .25s, transform .25s var(--ease);
+  }
+  .top-nav a.top-cta:hover { background: var(--ambar-claro); color: var(--negro); transform: translateY(-1px); }
+  .top-nav a.top-cta svg { width: 15px; height: 15px; }
+  .progress-track {
+    position: absolute; left: 26px; right: 26px; bottom: 6px; height: 2px;
+    border-radius: 2px; overflow: hidden; background: rgba(250,250,250,.08); z-index: 3;
+  }
+  .progress { height: 100%; width: 0%; border-radius: 2px; background: linear-gradient(90deg, var(--ambar), var(--ambar-claro)); }
+
+  /* ============ HERO / VISOR FPV ============ */
+  .hero {
+    position: relative; overflow: hidden; isolation: isolate;
+    min-height: 100svh; display: flex; align-items: center;
+    padding: 170px 0 150px; color: var(--hueso);
+    background: var(--negro);
+  }
+  .hero-video { position: absolute; inset: 0; z-index: -3; overflow: hidden; background: url('img/image-2.jpg') center/cover no-repeat; container-type: size; }
+  .hero-video iframe {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: max(100cqw, 177.78cqh); height: max(100cqh, 56.25cqw);
+    border: 0; pointer-events: none;
+    opacity: 0; transition: opacity 1.4s ease;
+  }
+  .hero-video iframe.loaded { opacity: 1; }
+  .hero-scrim {
+    position: absolute; inset: 0; z-index: -2; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(9,9,11,.7) 0%, rgba(9,9,11,.44) 46%, rgba(9,9,11,.12) 76%, rgba(9,9,11,0) 100%),
+      rgba(9,9,11,.2);
+  }
+
+  .hero-content { position: relative; z-index: 4; max-width: 950px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ambar); margin-bottom: 30px;
+  }
+  .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--ambar); flex-shrink: 0; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.6vw, 4.8rem); line-height: 1.0; letter-spacing: -.03em; font-weight: 700;
+    max-width: 900px; margin-bottom: 28px; text-wrap: balance;
+    text-shadow: 0 2px 28px rgba(9,9,11,.5);
+  }
+  .hero h1 em { font-style: normal; color: var(--ambar); }
+  .hero p.lead {
+    font-size: 1.1rem; color: rgba(250,250,250,.92); font-weight: 300; max-width: 620px;
+    line-height: 1.75; margin-bottom: 40px;
+    text-shadow: 0 1px 18px rgba(9,9,11,.55);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 52px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px 32px; border-radius: 9999px;
+    background: var(--ambar); color: var(--negro);
+    text-decoration: none; font-weight: 700; font-size: 14.5px; letter-spacing: .01em;
+    border: 0; cursor: pointer;
+    transition: background .25s, transform .25s var(--ease), box-shadow .25s var(--ease);
+    box-shadow: 0 10px 34px rgba(245,151,21,.28);
+  }
+  .btn:hover { background: var(--ambar-claro); transform: translateY(-2px); box-shadow: 0 16px 44px rgba(245,151,21,.36); }
+  .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .btn .arrow { transition: transform .25s var(--ease); }
+  .btn:hover .arrow { transform: translateX(4px); }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
+    width: 100%; margin: 0 auto; border-radius: var(--r-md); overflow: hidden;
+    border: 1px solid var(--linea-fuerte);
+    background: rgba(9,9,11,.5); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  }
+  .stat { padding: 24px 30px; position: relative; }
+  .stat + .stat::before { content: ''; position: absolute; left: 0; top: 18%; bottom: 18%; width: 1px; background: var(--linea-fuerte); }
+  .stat strong { display: block; font-size: 27px; font-weight: 700; letter-spacing: -.02em; color: var(--hueso); margin-bottom: 2px; }
+  .stat span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; color: rgba(250,250,250,.72); line-height: 1.5; display: block; text-transform: uppercase; }
+
+  .scroll-cue {
+    position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); z-index: 4;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(250,250,250,.65); font-family: var(--mono); font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
+    text-decoration: none; transition: color .3s;
+  }
+  .scroll-cue:hover { color: var(--ambar); }
+  .scroll-cue .line { width: 1px; height: 40px; background: linear-gradient(180deg, var(--ambar), transparent); animation: cue 2.2s var(--ease) infinite; }
+  @keyframes cue { 0% { transform: scaleY(.2); transform-origin: top; opacity: 0; } 40% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(.2); transform-origin: bottom; opacity: 0; } }
+
+  /* ============ SECCIONES ============ */
+  section { padding: clamp(88px, 10vw, 128px) 0; position: relative; }
+  section + section { border-top: 1px solid var(--linea); }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ambar); margin-bottom: 22px;
+  }
+  .eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--ambar); }
+  h2.section-title {
+    font-size: clamp(1.9rem, 3.6vw, 2.9rem); font-weight: 700; line-height: 1.06; letter-spacing: -.025em;
+    margin-bottom: 20px; max-width: 780px; color: var(--hueso); text-wrap: balance;
+  }
+  h2.section-title em { font-style: normal; color: var(--ambar); }
+  .section-intro { font-size: 1.02rem; color: var(--niebla); max-width: 700px; margin-bottom: 54px; line-height: 1.75; font-weight: 300; }
+
+  /* ============ DIAGNÓSTICO ============ */
+  .problems { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+  .problem {
+    padding: 32px 28px; border-radius: var(--r-md);
+    background: linear-gradient(165deg, rgba(226,84,63,.07), var(--carbon) 55%);
+    border: 1px solid rgba(226,84,63,.22);
+    transition: transform .35s var(--ease), border-color .35s, box-shadow .35s var(--ease);
+  }
+  .problem:hover { transform: translateY(-5px); border-color: rgba(226,84,63,.55); box-shadow: 0 22px 46px rgba(226,84,63,.1); }
+  .problem-icon {
+    position: relative; width: 46px; height: 46px; border-radius: 50%; margin-bottom: 22px;
+    display: grid; place-items: center; color: var(--dolor);
+    background: var(--dolor-soft); border: 1px solid rgba(226,84,63,.35);
+  }
+  .problem-icon svg { width: 21px; height: 21px; }
+  .problem-icon::after {
+    content: ''; position: absolute; inset: -1px; border-radius: 50%;
+    border: 1px solid rgba(226,84,63,.45);
+    animation: pain-pulse 2.6s ease-out infinite;
+  }
+  .problem:nth-child(2) .problem-icon::after { animation-delay: .5s; }
+  .problem:nth-child(3) .problem-icon::after { animation-delay: 1s; }
+  @keyframes pain-pulse {
+    0% { transform: scale(1); opacity: .6; }
+    100% { transform: scale(1.7); opacity: 0; }
+  }
+  .problem-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--dolor); display: block; margin-bottom: 8px; }
+  .problem h3 { font-size: 1.12rem; font-weight: 700; letter-spacing: -.015em; margin-bottom: 10px; color: var(--hueso); }
+  .problem p { font-size: .94rem; color: var(--niebla); line-height: 1.7; font-weight: 300; }
+  @media (prefers-reduced-motion: reduce) {
+    .problem-icon::after { animation: none; }
+  }
+  .bridge {
+    margin-top: 48px; padding: 44px 40px; border-radius: var(--r-lg);
+    border: 1px solid rgba(245,151,21,.35);
+    background: linear-gradient(135deg, rgba(245,151,21,.12), rgba(245,151,21,.02));
+    text-align: center;
+  }
+  .bridge h3 {
+    font-size: clamp(1.5rem, 2.8vw, 2.15rem); font-weight: 700; letter-spacing: -.025em;
+    line-height: 1.15; color: var(--hueso); margin: 0 auto 14px; max-width: 640px; text-wrap: balance;
+  }
+  .bridge h3 em { font-style: normal; color: var(--ambar); }
+  .bridge p { font-size: 1.05rem; font-weight: 300; color: var(--niebla); margin: 0 auto 28px; max-width: 520px; }
+  .bridge .btn { padding: 15px 30px; font-size: 14px; }
+
+  /* ============ FORMATOS ============ */
+  .formats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+  .format {
+    padding: 34px 30px; background: var(--carbon); border: 1px solid var(--linea);
+    border-radius: var(--r-lg); position: relative; overflow: hidden;
+    transition: transform .4s var(--ease), border-color .4s, box-shadow .4s var(--ease);
+    transform-style: preserve-3d; will-change: transform;
+  }
+  .format:hover { border-color: rgba(245,151,21,.45); box-shadow: 0 22px 50px rgba(0,0,0,.4); }
+  .format:not(:hover) { transition: transform .6s var(--ease), border-color .4s, box-shadow .4s var(--ease); }
+  .format-glare {
+    position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    opacity: 0; transition: opacity .4s ease;
+  }
+  .format:hover .format-glare { opacity: 1; }
+  .format-icon {
+    width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 24px;
+    background: rgba(245,151,21,.12); color: var(--ambar); border: 1px solid rgba(245,151,21,.28);
+    position: relative; overflow: visible; transition: transform .4s var(--ease), background .4s;
+  }
+  .format-icon svg { width: 23px; height: 23px; position: relative; z-index: 1; }
+  .format-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--ambar); display: block; margin-bottom: 10px; }
+  .format h3 { font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 12px; color: var(--hueso); }
+  .format p { font-size: .94rem; color: var(--niebla); line-height: 1.72; font-weight: 300; }
+
+  /* Cámara: destello de disparo al hover */
+  .format-camera .format-icon::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit;
+    background: var(--ambar); opacity: 0; transform: scale(.4);
+    transition: opacity .12s ease, transform .12s ease;
+  }
+  .format-camera:hover .format-icon::before { animation: shutter-flash .55s ease; }
+  .format-camera:hover .format-icon { transform: scale(1.08); background: rgba(245,151,21,.18); }
+  @keyframes shutter-flash {
+    0% { opacity: 0; transform: scale(.4); }
+    18% { opacity: .9; transform: scale(1); }
+    45% { opacity: 0; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1); }
+  }
+
+  /* Reels: barras de progreso tipo historias */
+  .format-reel .format-icon { overflow: hidden; }
+  .reel-bars {
+    position: absolute; left: 50%; top: 7px; transform: translateX(-50%);
+    display: flex; gap: 3px; z-index: 2;
+  }
+  .reel-bars i {
+    width: 6px; height: 2px; border-radius: 1px; background: rgba(245,151,21,.35);
+    transition: background .25s ease;
+  }
+  .format-reel:hover .reel-bars i { animation: reel-fill 1.4s ease infinite; }
+  .format-reel:hover .reel-bars i:nth-child(1) { animation-delay: 0s; }
+  .format-reel:hover .reel-bars i:nth-child(2) { animation-delay: .22s; }
+  .format-reel:hover .reel-bars i:nth-child(3) { animation-delay: .44s; }
+  @keyframes reel-fill { 0%, 100% { background: rgba(245,151,21,.35); } 40% { background: var(--ambar); } }
+  .format-reel:hover .format-icon svg { animation: reel-pulse 1.4s var(--ease) infinite; }
+  @keyframes reel-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+  .format-reel .format-icon::after {
+    content: ''; position: absolute; inset: 0; border-radius: inherit;
+    border: 1px solid var(--ambar); opacity: 0; transform: scale(1);
+  }
+  .format-reel:hover .format-icon::after { animation: reel-ripple 1.4s ease infinite; }
+  @keyframes reel-ripple {
+    0% { opacity: .6; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.55); }
+  }
+
+  /* Drone: órbita continua, siempre en vuelo */
+  .format-drone .format-icon::after {
+    content: ''; position: absolute; inset: -9px; border-radius: 50%;
+    background: radial-gradient(circle 2.6px at 50% 3px, var(--ambar) 97%, transparent 100%);
+    opacity: .8; animation: orbit 5s linear infinite;
+  }
+  .format-drone:hover .format-icon::after { animation-duration: 1.6s; }
+  .format-drone:hover .format-icon svg { animation: drone-tilt .9s var(--ease); }
+  @keyframes orbit { to { transform: rotate(360deg); } }
+  @keyframes drone-tilt {
+    0%, 100% { transform: rotate(0deg); }
+    30% { transform: rotate(-8deg); }
+    65% { transform: rotate(6deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .format-drone .format-icon::after { animation: none; }
+  }
+
+  /* ============ TRABAJO / PRUEBA ============ */
+  .projects { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 26px; align-items: start; }
+  .project { display: flex; flex-direction: column; }
+  .project-video {
+    border-radius: var(--r-md); overflow: hidden; position: relative;
+    background: #000; border: 1px solid var(--linea-fuerte);
+    max-width: 330px; width: 100%; margin: 0 auto 20px;
+    transition: transform .4s var(--ease), border-color .4s, box-shadow .4s var(--ease);
+  }
+  .project:hover .project-video { transform: translateY(-6px); border-color: rgba(245,151,21,.5); box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 44px rgba(245,151,21,.08); }
+  .project-video iframe {
+    width: 100%; aspect-ratio: 9/16; height: auto; border: 0; display: block;
+    transform: scale(1.2); transform-origin: 50% 50%;
+  }
+  .project-meta { text-align: center; max-width: 330px; margin: 0 auto; }
+  .project-client { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--ambar); margin-bottom: 8px; }
+  .project-title { font-size: 1.14rem; font-weight: 600; letter-spacing: -.015em; margin-bottom: 8px; color: var(--hueso); }
+  .project-desc { font-size: .91rem; color: var(--niebla); line-height: 1.68; font-weight: 300; }
+
+  .gallery-head { margin-top: clamp(72px, 8vw, 104px); display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+  .gallery-head h3 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 600; letter-spacing: -.02em; color: var(--hueso); }
+  .gallery-head p { font-size: .94rem; color: var(--niebla); margin-top: 6px; font-weight: 300; }
+  .gallery-hint { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--ambar); white-space: nowrap; }
+  .photo-gallery { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+  .photo-slot {
+    aspect-ratio: 4/5; border-radius: var(--r-md); overflow: hidden; position: relative;
+    background: var(--carbon); border: 1px solid var(--linea);
+    cursor: zoom-in; padding: 0;
+    transition: transform .35s var(--ease), border-color .35s, box-shadow .35s var(--ease);
+  }
+  .photo-slot:hover { transform: translateY(-4px); border-color: rgba(245,151,21,.5); box-shadow: 0 18px 44px rgba(0,0,0,.45); }
+  .photo-slot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s var(--ease); }
+  .photo-slot:hover img { transform: scale(1.05); }
+  .photo-slot::after {
+    content: '+'; position: absolute; right: 12px; bottom: 12px; width: 32px; height: 32px;
+    display: grid; place-items: center; border-radius: 50%; font-size: 19px; font-weight: 300;
+    background: rgba(9,9,11,.7); color: var(--ambar); border: 1px solid rgba(245,151,21,.4);
+    opacity: 0; transition: opacity .3s; pointer-events: none;
+  }
+  .photo-slot:hover::after { opacity: 1; }
+
+  /* ============ TESTIMONIO ============ */
+  .quote-block { text-align: center; max-width: 800px; margin: 0 auto; }
+  .quote-stars {
+    display: inline-flex; gap: 6px; margin: 0 auto 28px; color: var(--ambar);
+  }
+  .quote-stars svg { width: 22px; height: 22px; }
+  .quote-stars svg { animation: star-pop .5s var(--ease) both; }
+  .quote-stars svg:nth-child(1) { animation-delay: .05s; }
+  .quote-stars svg:nth-child(2) { animation-delay: .13s; }
+  .quote-stars svg:nth-child(3) { animation-delay: .21s; }
+  .quote-stars svg:nth-child(4) { animation-delay: .29s; }
+  .quote-stars svg:nth-child(5) { animation-delay: .37s; }
+  @keyframes star-pop { 0% { opacity: 0; transform: scale(.4) rotate(-18deg); } 100% { opacity: 1; transform: none; } }
+  .quote-block blockquote p {
+    font-size: clamp(1.35rem, 2.6vw, 1.85rem); font-weight: 500; letter-spacing: -.02em;
+    line-height: 1.4; color: var(--hueso); margin-bottom: 30px; text-wrap: balance;
+  }
+  .quote-block blockquote p::before { content: '“'; color: var(--ambar); }
+  .quote-block blockquote p::after { content: '”'; color: var(--ambar); }
+  .quote-author strong { display: block; font-size: 1rem; font-weight: 600; color: var(--hueso); margin-bottom: 4px; }
+  .quote-author span { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--niebla-2); }
+
+  /* ============ PROGRAMAS ============ */
+  .offer { background: linear-gradient(180deg, var(--negro) 0%, var(--brasa) 38%, var(--negro) 100%); }
+  .offer::before {
+    content: ''; position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
+    width: 720px; height: 520px; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(245,151,21,.1), transparent 65%);
+  }
+  .programs { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; align-items: stretch; position: relative; }
+  .program {
+    background: var(--carbon); padding: 38px 30px 30px; border: 1px solid var(--linea);
+    border-radius: var(--r-lg); position: relative;
+    display: flex; flex-direction: column;
+    transition: transform .35s var(--ease), border-color .35s, box-shadow .35s var(--ease);
+  }
+  .program:hover { transform: translateY(-5px); border-color: rgba(245,151,21,.4); }
+  .program.featured {
+    background: linear-gradient(180deg, #1a1409 0%, var(--carbon) 60%);
+    border: 1px solid rgba(245,151,21,.65);
+    box-shadow: 0 24px 70px rgba(0,0,0,.5), 0 0 60px rgba(245,151,21,.1);
+    transform: translateY(-10px);
+  }
+  .program.featured:hover { transform: translateY(-15px); border-color: var(--ambar); }
+  .program-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--ambar); color: var(--negro);
+    padding: 7px 18px; font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700;
+    border-radius: 9999px; white-space: nowrap; box-shadow: 0 10px 26px rgba(245,151,21,.35);
+  }
+  .program-num { font-family: var(--mono); font-size: 10px; color: var(--ambar); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 16px; }
+  .program-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -.025em; color: var(--hueso); margin-bottom: 8px; }
+  .program-tagline { font-size: .92rem; color: var(--niebla); margin-bottom: 24px; line-height: 1.55; font-weight: 300; }
+  .program-price-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .program-price { font-size: 2.5rem; font-weight: 700; letter-spacing: -.03em; color: var(--hueso); line-height: 1; }
+  .program-price-note { font-family: var(--mono); font-size: 11px; color: var(--niebla-2); }
+  .program-chip {
+    display: inline-block; margin-top: 12px; padding: 5px 12px; border-radius: 9999px;
+    background: rgba(245,151,21,.12); border: 1px solid rgba(245,151,21,.4);
+    font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ambar);
+    align-self: flex-start;
+  }
+  .program-desc { font-size: .93rem; color: var(--niebla); line-height: 1.7; font-weight: 300; margin: 20px 0 22px; padding-bottom: 22px; border-bottom: 1px solid var(--linea); }
+  .program h4 { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--ambar); margin: 20px 0 12px; }
+  .program ul { list-style: none; }
+  .program li { font-size: .92rem; color: var(--niebla); padding: 5px 0 5px 26px; position: relative; line-height: 1.55; font-weight: 300; }
+  .program li::before {
+    content: ''; position: absolute; left: 0; top: 9px; width: 14px; height: 14px;
+    background-color: var(--ambar);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+  .program-footer { margin-top: auto; padding-top: 22px; font-size: .8rem; color: var(--niebla-2); line-height: 1.6; font-weight: 300; }
+  .program-cta { margin-top: 18px; width: 100%; padding: 15px 20px; font-size: 14px; }
+  .program-cta.ghost { background: transparent; color: var(--hueso); border: 1px solid var(--linea-fuerte); box-shadow: none; }
+  .program-cta.ghost:hover { background: rgba(250,250,250,.06); border-color: rgba(245,151,21,.6); transform: translateY(-2px); }
+
+  .upgrade-note {
+    margin-top: 34px; padding: 22px 28px; border-radius: var(--r-md);
+    background: rgba(245,151,21,.07); border: 1px dashed rgba(245,151,21,.45);
+    display: flex; gap: 16px; align-items: flex-start; position: relative;
+  }
+  .upgrade-note svg { width: 22px; height: 22px; color: var(--ambar); flex-shrink: 0; margin-top: 2px; }
+  .upgrade-note p { font-size: .93rem; color: var(--niebla); line-height: 1.65; margin: 0; font-weight: 300; }
+  .upgrade-note strong { display: block; color: var(--hueso); font-weight: 600; font-size: 1rem; margin-bottom: 6px; }
+
+  .assurance { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 20px; position: relative; }
+  .assurance-item {
+    display: flex; align-items: center; gap: 14px; padding: 18px 22px;
+    background: var(--carbon); border: 1px solid var(--linea); border-radius: var(--r-md);
+  }
+  .assurance-item svg { width: 22px; height: 22px; color: var(--ambar); flex-shrink: 0; }
+  .assurance-item span { font-size: .85rem; color: var(--niebla); line-height: 1.5; font-weight: 300; }
+  .assurance-item strong { color: var(--hueso); font-weight: 600; display: block; font-size: .89rem; }
+
+  /* ============ PILARES ============ */
+  .benefits-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+  .benefit {
+    padding: 30px; border-radius: var(--r-lg);
+    background: var(--carbon); border: 1px solid var(--linea);
+    display: flex; gap: 20px; align-items: flex-start;
+    transition: transform .35s var(--ease), border-color .35s;
+  }
+  .benefit:hover { transform: translateY(-4px); border-color: rgba(245,151,21,.4); }
+  .benefit-icon {
+    width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; flex-shrink: 0;
+    background: rgba(245,151,21,.12); color: var(--ambar); border: 1px solid rgba(245,151,21,.28);
+  }
+  .benefit-icon svg { width: 21px; height: 21px; }
+  .benefit h3 { font-size: 1.08rem; font-weight: 600; letter-spacing: -.015em; color: var(--hueso); margin-bottom: 8px; }
+  .benefit p { font-size: .93rem; color: var(--niebla); line-height: 1.7; font-weight: 300; }
+
+  /* ============ PROCESO ============ */
+  .steps { max-width: 720px; margin: 0 auto; position: relative; padding-left: 8px; }
+  .steps::before { content: ''; position: absolute; left: 29px; top: 30px; bottom: 30px; width: 1px; background: linear-gradient(180deg, rgba(245,151,21,.7), rgba(245,151,21,.1)); }
+  .step { display: flex; gap: 26px; align-items: flex-start; padding: 24px 0; position: relative; }
+  .step-num {
+    width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; z-index: 1;
+    display: grid; place-items: center;
+    font-family: var(--mono); font-size: 12px; color: var(--ambar);
+    background: var(--negro); border: 1px solid rgba(245,151,21,.55);
+  }
+  .step-body { padding-top: 8px; }
+  .step-body h3 { font-size: 1.06rem; font-weight: 600; letter-spacing: -.015em; color: var(--hueso); margin-bottom: 4px; }
+  .step-body p { font-size: .93rem; color: var(--niebla); font-weight: 300; }
+
+  /* ============ QUIÉN SOY ============ */
+  .about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 56px; align-items: start; }
+  .about-portrait-wrap { position: relative; }
+  .about-portrait-wrap::before {
+    content: ''; position: absolute; inset: 16px -16px -16px 16px; border-radius: var(--r-lg);
+    border: 1px solid rgba(245,151,21,.5); pointer-events: none;
+  }
+  .about-portrait {
+    aspect-ratio: 3/4; border-radius: var(--r-lg); position: relative; overflow: hidden;
+    background: var(--carbon) center/cover no-repeat;
+    border: 1px solid var(--linea-fuerte);
+  }
+  .about-portrait::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(9,9,11,.5) 100%); pointer-events: none; }
+  .portrait-caption {
+    position: absolute; left: 18px; bottom: 16px; z-index: 1; color: var(--hueso);
+    font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+  }
+  .about-body p { font-size: .98rem; color: var(--niebla); margin-bottom: 18px; line-height: 1.85; font-weight: 300; }
+  .about-body p strong { color: var(--hueso); font-weight: 600; }
+  .about-body .about-statement {
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem); font-weight: 400; line-height: 1.4; letter-spacing: -.015em;
+    color: var(--hueso); margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--linea);
+  }
+  .about-body .about-statement strong { font-weight: 600; color: var(--ambar); }
+  .credentials { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 30px; }
+  .credential {
+    padding: 20px; background: var(--carbon); border: 1px solid var(--linea);
+    border-radius: var(--r-md); position: relative;
+  }
+  .credential::before { content: ''; position: absolute; top: 0; left: 20px; width: 30px; height: 2px; background: var(--ambar); }
+  .credential-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--ambar); margin-bottom: 8px; }
+  .credential-value { font-size: .92rem; color: var(--hueso); font-weight: 500; line-height: 1.5; }
+
+  /* ============ FAQ ============ */
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--linea); }
+  .faq-item summary {
+    list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    padding: 24px 4px; font-size: 1.05rem; font-weight: 600; letter-spacing: -.01em; color: var(--hueso);
+    transition: color .25s;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { color: var(--ambar); }
+  .faq-icon {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; position: relative;
+    border: 1px solid rgba(245,151,21,.45); transition: transform .35s var(--ease), background .3s;
+  }
+  .faq-icon::before, .faq-icon::after {
+    content: ''; position: absolute; top: 50%; left: 50%; background: var(--ambar);
+    transition: background .3s;
+  }
+  .faq-icon::before { width: 12px; height: 1.5px; transform: translate(-50%,-50%); }
+  .faq-icon::after { width: 1.5px; height: 12px; transform: translate(-50%,-50%); }
+  .faq-item[open] .faq-icon { transform: rotate(45deg); background: var(--ambar); }
+  .faq-item[open] .faq-icon::before, .faq-item[open] .faq-icon::after { background: var(--negro); }
+  .faq-a { padding: 0 44px 26px 4px; font-size: .96rem; color: var(--niebla); line-height: 1.75; max-width: 680px; font-weight: 300; }
+
+  /* ============ CTA FINAL — GOLDEN HOUR ============ */
+  .cta-final {
+    background: linear-gradient(160deg, #f8bd64 0%, var(--ambar) 45%, #df830c 100%);
+    color: var(--negro); padding: clamp(100px, 12vw, 150px) 0; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-final::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .35; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+  }
+  .cta-final .wrap { position: relative; z-index: 1; }
+  .cta-eyebrow { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: rgba(9,9,11,.82); margin-bottom: 24px; }
+  .cta-final h2 {
+    font-size: clamp(2.1rem, 4vw, 3.4rem); font-weight: 700; letter-spacing: -.03em;
+    line-height: 1.05; margin: 0 auto 20px; max-width: 840px; text-wrap: balance; color: var(--negro);
+  }
+  .cta-final h2 .blanco { color: var(--hueso); }
+  .cta-sub { font-size: 1.05rem; color: rgba(9,9,11,.75); max-width: 560px; margin: 0 auto 42px; line-height: 1.7; font-weight: 400; }
+  .cta-final .hero-actions { justify-content: center; margin-bottom: 0; }
+  .btn-negro {
+    background: var(--negro); color: var(--hueso); box-shadow: 0 14px 38px rgba(9,9,11,.35);
+  }
+  .btn-negro:hover { background: #1c1c21; box-shadow: 0 18px 48px rgba(9,9,11,.4); }
+
+  /* ============ FOOTER ============ */
+  .site-footer { background: var(--negro); color: var(--niebla-2); padding: 44px 0; font-size: .84rem; border-top: 1px solid var(--linea); }
+  .site-footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-brand img { height: 19px; width: auto; opacity: .92; }
+  .footer-brand span { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
+  .site-footer a { color: var(--niebla); text-decoration: none; transition: color .25s; }
+  .site-footer a:hover { color: var(--ambar); }
+  .footer-tc { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
+  .footer-right { display: flex; align-items: center; gap: 18px; }
+  .footer-ig {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid var(--linea); color: var(--niebla);
+    transition: color .25s, border-color .25s;
+  }
+  .footer-ig:hover { color: var(--ambar); border-color: rgba(245,151,21,.5); }
+  .footer-ig svg { width: 16px; height: 16px; }
+
+  /* ============ FAB WHATSAPP ============ */
+  .fab {
+    position: fixed; right: 26px; bottom: 26px; z-index: 70;
+    display: flex; align-items: center;
+    background: var(--ambar); color: var(--negro); text-decoration: none;
+    border-radius: 9999px; padding: 15px;
+    box-shadow: 0 16px 42px rgba(245,151,21,.4);
+    transform: translateY(120px); opacity: 0;
+    transition: transform .5s var(--ease), opacity .5s var(--ease), background .3s;
+  }
+  .fab.show { transform: translateY(0); opacity: 1; }
+  .fab:hover { background: var(--ambar-claro); }
+  .fab svg { width: 24px; height: 24px; flex-shrink: 0; }
+  .fab-label {
+    max-width: 0; overflow: hidden; white-space: nowrap;
+    font-size: 13px; font-weight: 700; letter-spacing: .01em;
+    transition: max-width .45s var(--ease), padding .45s var(--ease);
+  }
+  .fab:hover .fab-label { max-width: 200px; padding-left: 12px; padding-right: 4px; }
+
+  /* ============ LIGHTBOX ============ */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 90; display: none;
+    align-items: center; justify-content: center; padding: 5vh 5vw;
+    background: rgba(9,9,11,.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 12px; box-shadow: 0 40px 90px rgba(0,0,0,.6); }
+  .lb-close, .lb-prev, .lb-next {
+    position: absolute; width: 46px; height: 46px; border-radius: 50%;
+    background: rgba(250,250,250,.07); border: 1px solid var(--linea-fuerte); color: var(--hueso);
+    display: grid; place-items: center; cursor: pointer; font-size: 20px;
+    transition: background .25s, border-color .25s; -webkit-tap-highlight-color: transparent;
+  }
+  .lb-close:hover, .lb-prev:hover, .lb-next:hover { background: rgba(245,151,21,.25); border-color: rgba(245,151,21,.5); }
+  .lb-close { top: 22px; right: 22px; }
+  .lb-prev { left: 18px; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 18px; top: 50%; transform: translateY(-50%); }
+
+  /* ============ REVEAL ============ */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1020px) {
+    .formats, .problems, .programs, .projects, .credentials, .assurance { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .photo-gallery { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-portrait-wrap { max-width: 360px; }
+    .program.featured { transform: none; }
+    .program.featured:hover { transform: translateY(-5px); }
+    .project-video { max-width: 300px; }
+    .hero-stats { max-width: 100%; }
+  }
+  @media (max-width: 720px) {
+    .wrap, .wrap-narrow { padding: 0 22px; }
+    .topbar { padding: 14px 14px 0; }
+    .topbar-inner { padding: 10px 14px; border-radius: 9999px; }
+    .progress-track { left: 20px; right: 20px; }
+    .top-nav a:not(.top-cta) { display: none; }
+    .top-nav a.top-cta { margin-left: 0; padding: 10px 16px; }
+    .logo-word { display: none; }
+    .hero { min-height: auto; padding: 132px 0 96px; }
+    .hero-eyebrow { font-size: 9.5px; letter-spacing: .14em; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .btn { width: 100%; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .stat + .stat::before { left: 10%; right: 10%; top: 0; bottom: auto; width: auto; height: 1px; }
+    .scroll-cue { display: none; }
+    .photo-gallery { grid-template-columns: 1fr; }
+    .bridge { padding: 34px 24px; }
+    .bridge .btn { width: auto; }
+    .site-footer .wrap { flex-direction: column; align-items: flex-start; }
+    .fab { right: 18px; bottom: 18px; }
+    .faq-a { padding-right: 4px; }
+    .benefit { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOPBAR ============ -->
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="#" aria-label="Kulmen Visuals — inicio">
+      <span class="logo-mark"><img src="logos/KV__isotipo blanco.png" alt="Kulmen Visuals"></span>
+      <img class="logo-word" src="logos/KV__logotipo blanco.png" alt="Kulmen Visuals">
+    </a>
+    <nav class="top-nav" aria-label="Navegación principal">
+      <a href="#propuesta">Propuesta</a>
+      <a href="#trabajo">Trabajo</a>
+      <a href="#programas">Programas</a>
+      <a href="#quien">Quién soy</a>
+      <a class="top-cta" data-wa data-wa-msg="Hola Io, hemos visto la propuesta para Cabanas do Navia y nos gustaría hablar contigo." href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.4-.7-2.9-1.1-4.7-4.1-4.8-4.3-.1-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.3-.1.6.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .2 0 .7-.3 1.3z"/></svg>
+        Hablemos
+      </a>
+    </nav>
+    <div class="progress-track" aria-hidden="true"><div class="progress" id="progress"></div></div>
+  </div>
+</header>
+
+<!-- ============ HERO / VISOR FPV ============ -->
+<section class="hero" id="inicio">
+  <div class="hero-video" id="heroVideo" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="wrap hero-content">
+    <div class="hero-eyebrow reveal">Propuesta · Cabanas do Navia</div>
+    <h1 class="reveal">Reservas constantes. <em>Y a mejor precio.</em></h1>
+    <p class="lead reveal">Contenido estratégico que os hace visibles a públicos nuevos y os posiciona por lo que realmente valéis.</p>
+    <div class="hero-actions reveal">
+      <a href="#programas" class="btn">Ver programas y precios <span class="arrow">→</span></a>
+    </div>
+    <div class="hero-stats reveal" role="list">
+      <div class="stat" role="listitem"><strong>+123 %</strong><span>alcance orgánico promedio</span></div>
+      <div class="stat" role="listitem"><strong>4 estaciones</strong><span>contenido todo el año</span></div>
+      <div class="stat" role="listitem"><strong>10 días</strong><span>entrega desde el rodaje</span></div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#diagnostico" aria-label="Bajar a la siguiente sección">Descubrir<span class="line"></span></a>
+</section>
+
+<!-- ============ DIAGNÓSTICO ============ -->
+<section id="diagnostico">
+  <div class="wrap">
+    <span class="eyebrow reveal">El diagnóstico</span>
+    <h2 class="section-title reveal">El problema que os está costando <em>reservas</em> ahora mismo</h2>
+    <p class="section-intro reveal">Habéis construido un producto que compite con hoteles de 5 estrellas. Pero en Instagram, en Booking y en TikTok, vuestras cabañas se ven parecidas a cualquier alojamiento rural gallego con buenas fotos. Ese desajuste tiene tres consecuencias directas en vuestras reservas:</p>
+
+    <div class="problems">
+      <div class="problem reveal">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68M6.61 6.61A13.53 13.53 0 0 0 2 12s3 8 10 8a9.74 9.74 0 0 0 5.39-1.61M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="M2 2l20 20"/></svg>
+        </div>
+        <span class="problem-kicker">Alcance</span>
+        <h3>No llegáis a públicos nuevos</h3>
+        <p>El contenido estándar no se comparte, no se guarda, no viaja. Solo os encuentra quien ya os estaba buscando.</p>
+      </div>
+      <div class="problem reveal">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>
+        </div>
+        <span class="problem-kicker">Percepción y precio</span>
+        <h3>Vendéis por debajo de vuestro valor</h3>
+        <p>Cuando la presencia visual no está a la altura del producto, el cliente entra por precio y negocia. Cuando sí lo está, entra convencido de que ya es una oportunidad.</p>
+      </div>
+      <div class="problem reveal">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2.5"/><path d="M16 2v4M8 2v4M3 10h18M10 14l4 4M14 14l-4 4"/></svg>
+        </div>
+        <span class="problem-kicker">Estacionalidad</span>
+        <h3>Dependéis de temporada alta</h3>
+        <p>Sin contenido estacional constante, en octubre desaparecéis del feed, en enero también, y en marzo os toca empezar de cero.</p>
+      </div>
+    </div>
+
+    <div class="bridge reveal">
+      <h3>Los tres problemas tienen la misma raíz: <em>el contenido</em>.</h3>
+      <p>Y eso es exactamente lo que resolvemos.</p>
+      <a href="#propuesta" class="btn">Ver cómo <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LA PROPUESTA ============ -->
+<section id="propuesta">
+  <div class="wrap">
+    <span class="eyebrow reveal">La propuesta</span>
+    <h2 class="section-title reveal">Tres formatos que juntos construyen una <em>presencia completa</em></h2>
+    <p class="section-intro reveal">Trabajo tres formatos que se complementan y que juntos construyen la presencia visual completa de un alojamiento premium.</p>
+
+    <div class="formats">
+      <div class="format format-camera reveal">
+        <span class="format-glare" aria-hidden="true"></span>
+        <div class="format-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <span class="format-kicker">La base</span>
+        <h3>Fotografía profesional</h3>
+        <p>Lo primero que ve un cliente cuando descubre las cabañas en Instagram, Booking o Google. Fotos editadas y optimizadas para cada plataforma, pero también pensadas para alimentar vuestras redes, ganar alcance y empujar reservas directas desde la web.</p>
+      </div>
+      <div class="format format-reel reveal">
+        <span class="format-glare" aria-hidden="true"></span>
+        <div class="format-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg>
+          <span class="reel-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <span class="format-kicker">El alcance</span>
+        <h3>Reels y vídeo social</h3>
+        <p>Piezas cortas verticales pensadas para Instagram y TikTok, con la lógica editorial que hoy funciona en esas plataformas: parar el scroll en los primeros dos segundos, guardar y compartir.</p>
+      </div>
+      <div class="format format-drone reveal">
+        <span class="format-glare" aria-hidden="true"></span>
+        <div class="format-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="5" r="2.6"/><circle cx="19" cy="5" r="2.6"/><circle cx="5" cy="19" r="2.6"/><circle cx="19" cy="19" r="2.6"/><rect x="9.4" y="9.4" width="5.2" height="5.2" rx="1.4"/><path d="M7 7l2.6 2.6M17 7l-2.6 2.6M7 17l2.6-2.6M17 17l-2.6-2.6"/></svg>
+        </div>
+        <span class="format-kicker">La diferencia</span>
+        <h3>Dron FPV cinematográfico</h3>
+        <p>La especialidad, y el factor que os diferencia. Vídeo con dron inmersivo que muy pocas propiedades en Galicia pueden ofrecer, porque requiere años de práctica, homologación EASA/AESA y equipo específico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRABAJO REAL ============ -->
+<section id="trabajo">
+  <div class="wrap">
+    <span class="eyebrow reveal">Trabajo real</span>
+    <h2 class="section-title reveal">Proyectos con <em>alojamientos e inmobiliarias</em></h2>
+    <p class="section-intro reveal">He trabajado con alojamientos turísticos e inmobiliarias en Galicia y España. Analizo cada caso para cumplir su objetivo concreto: en el vuestro, generar más reservas a través de las redes sociales.</p>
+
+    <div class="projects">
+      <div class="project reveal">
+        <div class="project-video">
+          <iframe src="https://player.vimeo.com/video/1210437296?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Reel FPV — Cabanas Ribeira Sacra"></iframe>
+        </div>
+        <div class="project-meta">
+          <div class="project-client">Cabanas Ribeira Sacra</div>
+          <div class="project-title">Reels FPV + reportaje fotográfico</div>
+          <p class="project-desc">Producción integral para un alojamiento rural premium en la Ribeira Sacra. Reels FPV para redes y reportaje fotográfico completo para web y portales.</p>
+        </div>
+      </div>
+      <div class="project reveal">
+        <div class="project-video">
+          <iframe src="https://player.vimeo.com/video/1210534720?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Reel FPV — Spanish Spaces"></iframe>
+        </div>
+        <div class="project-meta">
+          <div class="project-client">Spanish Spaces</div>
+          <div class="project-title">Reels FPV inmobiliario</div>
+          <p class="project-desc">Contenido audiovisual para agencia inmobiliaria especializada en propiedades singulares. Reel pensado para atraer compradores nacionales e internacionales.</p>
+        </div>
+      </div>
+      <div class="project reveal">
+        <div class="project-video">
+          <iframe src="https://player.vimeo.com/video/1210443257?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Reel FPV — Villa Boutique 1880"></iframe>
+        </div>
+        <div class="project-meta">
+          <div class="project-client">Villa Boutique 1880</div>
+          <div class="project-title">Reel FPV cinematográfico</div>
+          <p class="project-desc">Pieza FPV para hotel boutique de gama alta. Recorrido inmersivo diseñado para transmitir el nivel de la propiedad en una sola toma continua.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-head reveal">
+      <div>
+        <h3>Muestras de reportaje fotográfico</h3>
+        <p>Fotografía de interior, exterior y detalle para alojamientos y espacios.</p>
+      </div>
+      <span class="gallery-hint">Clic para ampliar</span>
+    </div>
+    <div class="photo-gallery" id="photoGallery">
+      <button class="photo-slot reveal" type="button" aria-label="Ampliar fotografía 1"></button>
+      <button class="photo-slot reveal" type="button" aria-label="Ampliar fotografía 2"></button>
+      <button class="photo-slot reveal" type="button" aria-label="Ampliar fotografía 3"></button>
+      <button class="photo-slot reveal" type="button" aria-label="Ampliar fotografía 4"></button>
+      <button class="photo-slot reveal" type="button" aria-label="Ampliar fotografía 5"></button>
+      <button class="photo-slot reveal" type="button" aria-label="Ampliar fotografía 6"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIO ============ -->
+<section>
+  <div class="wrap-narrow">
+    <div class="quote-block reveal">
+      <span class="quote-stars" role="img" aria-label="Valoración de 5 sobre 5 estrellas">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+      </span>
+      <blockquote>
+        <p>Un placer tener a Io trabajando en nuestras cabañas. Unos vídeos preciosos. Por supuesto, nos volveremos a ver.</p>
+        <footer class="quote-author">
+          <strong>Miguel Álvarez</strong>
+          <span>Propietario · Cabanas Ribeira Sacra</span>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMAS ============ -->
+<section class="offer" id="programas">
+  <div class="wrap">
+    <span class="eyebrow reveal">Los tres programas</span>
+    <h2 class="section-title reveal">Escoged según <em>el objetivo</em></h2>
+    <p class="section-intro reveal">Desde probar la especialidad hasta un programa continuo pensado para las cuatro estaciones. Cada programa está diseñado para una fase distinta de crecimiento.</p>
+
+    <div class="programs">
+      <div class="program reveal">
+        <div class="program-num">Programa 01</div>
+        <div class="program-name">Reels FPV Signature</div>
+        <div class="program-tagline">Probar la especialidad, con volumen suficiente para ver resultados</div>
+        <div class="program-price-row"><span class="program-price">490 €</span><span class="program-price-note">+ IVA</span></div>
+        <p class="program-desc">Cuatro reels con dron FPV cinematográfico, pensados como una serie coherente. La forma más directa de comprobar cómo cambia el alcance de vuestras cabañas cuando el contenido se sale del estándar del sector.</p>
+        <h4>Lo que os aporta</h4>
+        <ul class="aporta"><li>Alcance orgánico rápido en Instagram y TikTok</li><li>Cuatro piezas para publicar escalonadas</li><li>Diferenciación inmediata frente a cualquier alojamiento de la zona</li><li>Una prueba real del FPV antes de dar pasos mayores</li></ul>
+        <h4>Incluye</h4>
+        <ul class="includes"><li>Análisis previo y guion de las 4 piezas</li><li>Rodaje con dron FPV cinematográfico</li><li>Modelo incluida en cámara</li><li>Grabación en atardecer y amanecer</li><li>Edición y color en DaVinci Resolve</li><li>Derechos de uso completos</li></ul>
+        <div class="program-footer">Requiere una noche de estancia en cabaña.</div>
+        <a class="btn program-cta ghost" data-wa data-wa-msg="Hola Io, somos de Cabanas do Navia. Nos interesa el Programa 01 · Reels FPV Signature. ¿Cuándo podemos hablar?" href="#">Empezar con el 01</a>
+      </div>
+
+      <div class="program featured reveal">
+        <div class="program-badge">Más elegido</div>
+        <div class="program-num">Programa 02</div>
+        <div class="program-name">Presencia Visual</div>
+        <div class="program-tagline">Elevar la percepción de vuestras cabañas de golpe</div>
+        <div class="program-price-row"><span class="program-price">890 €</span><span class="program-price-note">+ IVA</span></div>
+        <p class="program-desc">Un pack completo pensado para transformar cómo os ven vuestros clientes potenciales: web, portales, redes y prensa alineadas al mismo nivel de calidad que vuestro producto físico.</p>
+        <h4>Lo que os aporta</h4>
+        <ul class="aporta"><li>Clientes que llegan con expectativa premium y menos ganas de negociar</li><li>Material profesional para toda la temporada</li><li>Home de vuestra web con un vídeo que retiene y convierte</li></ul>
+        <h4>Incluye</h4>
+        <ul class="includes"><li>Reportaje fotográfico profesional editado</li><li>4 Reels con dron FPV</li><li>2 Reels sociales complementarios</li><li>1 vídeo horizontal para la home</li><li>Modelo incluida en cámara</li><li>Derechos de uso completos</li></ul>
+        <div class="program-footer">Requiere una noche de estancia en cabaña.</div>
+        <a class="btn program-cta" data-wa data-wa-msg="Hola Io, somos de Cabanas do Navia. Nos interesa el Programa 02 · Presencia Visual. ¿Cuándo podemos hablar?" href="#">Quiero este programa <span class="arrow">→</span></a>
+      </div>
+
+      <div class="program reveal">
+        <div class="program-num">Programa 03</div>
+        <div class="program-name">Programa 365</div>
+        <div class="program-tagline">Reservas todo el año, no solo en temporada alta</div>
+        <div class="program-price-row"><span class="program-price">2.670 €</span><span class="program-price-note">+ IVA / trimestre</span></div>
+        <span class="program-chip">Ahorro del 18 %</span>
+        <p class="program-desc">Contenido nuevo cada mes, cobertura de las cuatro estaciones y presencia continuada. Pensado para el problema real de todo alojamiento rural: la estacionalidad.</p>
+        <h4>Lo que os aporta</h4>
+        <ul class="aporta"><li>Ocupación en meses tradicionalmente flojos</li><li>Contenido para cada estación: nieve, vendimia, otoño, verano</li><li>Crecimiento orgánico sostenido en RRSS</li><li>Menor dependencia de Booking y otras OTAs</li><li>Un canal de captación propio los 365 días</li></ul>
+        <h4>Incluye cada trimestre</h4>
+        <ul class="includes"><li>3 sesiones de producción (una al mes)</li><li>90 fotografías profesionales editadas</li><li>24 Reels con dron FPV y contenido social</li><li>Planificación estratégica de calendario editorial</li><li>Reunión mensual de seguimiento</li><li>Informe de resultados al final del trimestre</li><li>Modelo incluida en cámara</li><li>Derechos de uso completos</li></ul>
+        <div class="program-footer">3 estancias, una por mes. Un trimestre cerrado, sin renovación automática.</div>
+        <a class="btn program-cta ghost" data-wa data-wa-msg="Hola Io, somos de Cabanas do Navia. Nos interesa el Programa 03 · Programa 365. ¿Cuándo podemos hablar?" href="#">Hablar del 365</a>
+      </div>
+    </div>
+
+    <div class="upgrade-note reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+      <p><strong>¿Dudáis entre empezar pequeño o ir a por todo?</strong>Empezad por el Programa 01: si en los 30 días siguientes decidís pasar al Programa 365, los 490 € ya pagados se descuentan íntegros. Probáis sin riesgo.</p>
+    </div>
+
+    <div class="assurance">
+      <div class="assurance-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span><strong>Pago en dos partes</strong>50 % al confirmar fecha, 50 % contra entrega.</span>
+      </div>
+      <div class="assurance-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 16.6A5 5 0 0 0 18 7h-1.3A8 8 0 1 0 4 15.3"/><path d="M8 19v2M12 20v2M16 19v2"/></svg>
+        <span><strong>¿Llueve el día del rodaje?</strong>Reprogramamos sin coste. Nunca contenido tibio.</span>
+      </div>
+      <div class="assurance-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span><strong>Derechos completos</strong>Uso perpetuo en web, redes, portales y prensa.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILARES ============ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">Los cuatro pilares</span>
+    <h2 class="section-title reveal">Qué os devuelve invertir en <em>contenido profesional</em></h2>
+    <div class="benefits-grid" style="margin-top: 44px;">
+      <div class="benefit reveal">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h4l2-7 4 14 3-9 2 4h5"/></svg></div>
+        <div><h3>Llegar a público nuevo</h3><p>Reels y fotos que se comparten en Instagram y TikTok, entrando en feeds de personas que hoy ni saben que existís.</p></div>
+      </div>
+      <div class="benefit reveal">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l18-9-6 18-3.5-7z"/></svg></div>
+        <div><h3>Más reservas directas</h3><p>Contenido pensado para convertir en vuestra web, sin depender tanto de intermediarios.</p></div>
+      </div>
+      <div class="benefit reveal">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M6 6c3 2 9 2 12 0M6 18c3-2 9-2 12 0"/></svg></div>
+        <div><h3>Reservas fuera de temporada alta</h3><p>Contenido estacional que os mantiene presentes durante todo el año, no solo en temporada alta.</p></div>
+      </div>
+      <div class="benefit reveal">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3l3 6 3-6"/></svg></div>
+        <div><h3>Percepción a la altura del producto</h3><p>Fotos y vídeos que hacen que el cliente llegue convencido de que ya es una oportunidad al precio publicado.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESO ============ -->
+<section>
+  <div class="wrap-narrow">
+    <span class="eyebrow reveal">El proceso</span>
+    <h2 class="section-title reveal">Cómo trabajamos, <em>paso a paso</em></h2>
+    <p class="section-intro reveal">Sin improvisación: cada producción se planifica sobre plano antes de encender la cámara.</p>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">01</div><div class="step-body"><h3>Llamada inicial</h3><p>Para conocer las cabañas y objetivos concretos.</p></div></div>
+      <div class="step reveal"><div class="step-num">02</div><div class="step-body"><h3>Plan de rodaje</h3><p>Con emplazamientos, horas de luz y guion visual.</p></div></div>
+      <div class="step reveal"><div class="step-num">03</div><div class="step-body"><h3>Sesión en cabaña</h3><p>Planificada al minuto. Cero improvisación.</p></div></div>
+      <div class="step reveal"><div class="step-num">04</div><div class="step-body"><h3>Postproducción</h3><p>Retoque profesional y etalonaje de fotografía y vídeos.</p></div></div>
+      <div class="step reveal"><div class="step-num">05</div><div class="step-body"><h3>Entrega</h3><p>En 10 días laborables, listo para publicar.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIÉN SOY ============ -->
+<section id="quien">
+  <div class="wrap">
+    <span class="eyebrow reveal">Quién está detrás</span>
+    <h2 class="section-title reveal">Io · <em>Kulmen Visuals</em></h2>
+    <p class="section-intro reveal">Creatividad al servicio comercial.</p>
+    <div class="about-grid" style="margin-top: 44px;">
+      <div class="about-portrait-wrap reveal">
+        <div class="about-portrait" id="aboutPortrait">
+          <span class="portrait-caption">Io · Operadora FPV</span>
+        </div>
+      </div>
+      <div class="about-body reveal">
+        <p>Soy <strong>directora creativa y operadora de dron FPV</strong> especializada en contenido para alojamientos, turismo y hospitality en Galicia. Trabajo bajo mi marca, Kulmen Visuals, con base en Pontevedra.</p>
+        <p>Antes de especializarme en contenido para espacios, pasé años en agencias y productoras, viendo de cerca qué contenido realmente mueve una decisión de compra y qué contenido solo ocupa espacio en el feed. Esa mirada estratégica es la que aplico a cada proyecto que hago hoy: <strong>no grabo para que quede bonito, lo hago para que genere reservas</strong>. Contenido audiovisual bajo un mismo criterio: sin equipos externos, sin subcontratación, sin que la idea se diluya por el camino.</p>
+        <p class="about-statement">El contenido no es un adorno: <strong>es lo que decide si un cliente potencial reserva con vosotros o sigue mirando</strong>.</p>
+        <div class="credentials">
+          <div class="credential reveal"><div class="credential-label">Certificación</div><div class="credential-value">Operadora oficial EASA / AESA</div></div>
+          <div class="credential reveal"><div class="credential-label">Experiencia</div><div class="credential-value">Productoras de cine y agencias de marketing</div></div>
+          <div class="credential reveal"><div class="credential-label">Especialidad</div><div class="credential-value">Turismo, hospitality y alojamientos premium</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap-narrow">
+    <span class="eyebrow reveal">Preguntas frecuentes</span>
+    <h2 class="section-title reveal">Todo lo demás, <em>resuelto</em></h2>
+    <div class="faq-list reveal" style="margin-top: 44px;">
+      <details class="faq-item">
+        <summary>¿Y si el día de rodaje llueve?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-a">Reprogramamos sin coste. Prefiero reagendar antes que entregaros contenido tibio.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Los precios incluyen IVA?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-a">No, todos los precios llevan 21 % de IVA aparte.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo son los pagos?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-a">50 % al confirmar la fecha, 50 % contra entrega. En el Programa 365, mensualidades a mes vencido.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿A quién pertenece el material?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-a">Vosotros tenéis derechos de uso completos y perpetuos para vuestras plataformas (web, redes, portales, prensa). Yo conservo derechos de portfolio.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto tarda la entrega?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-a">10 días laborables desde el rodaje.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo cambiar de programa?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-a">Sí. Si empezáis con el Reels FPV Signature y queréis pasar al Programa 365 en los 30 días siguientes, descuento los 490 € ya pagados.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Hasta dónde os desplazáis?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-a">Vuestra zona entra sin problema. Kilometraje incluido para toda Galicia y Asturias occidental.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL — GOLDEN HOUR ============ -->
+<section class="cta-final">
+  <div class="wrap">
+    <span class="cta-eyebrow reveal">El siguiente paso</span>
+    <h2 class="reveal">Vuestras cabañas ya son <span class="blanco">excepcionales</span>. Ahora contadlas al público que aún no las conoce.</h2>
+    <p class="cta-sub reveal">Una conversación de 15 minutos basta para ver qué programa encaja con vuestros objetivos. Sin compromiso.</p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-negro" data-wa data-wa-msg="Hola Io, hemos visto la propuesta para Cabanas do Navia y nos gustaría dar el siguiente paso." href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.4-.7-2.9-1.1-4.7-4.1-4.8-4.3-.1-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.3-.1.6.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .2 0 .7-.3 1.3z"/></svg>
+        Hablemos por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <img src="logos/KV__logotipo blanco.png" alt="Kulmen Visuals">
+      <span>· Pontevedra, Galicia</span>
+    </div>
+    <div><a href="mailto:hola@kulmenvisuals.com">hola@kulmenvisuals.com</a></div>
+    <div class="footer-right">
+      <span class="footer-tc">© 2026 KULMEN VISUALS</span>
+      <a class="footer-ig" href="https://www.instagram.com/kulmenvisuals/" target="_blank" rel="noopener" aria-label="Instagram de Kulmen Visuals">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FAB ============ -->
+<a class="fab" id="fab" data-wa data-wa-msg="Hola Io, hemos visto la propuesta para Cabanas do Navia y nos gustaría hablar contigo." href="#" aria-label="Abrir conversación de WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.4-.7-2.9-1.1-4.7-4.1-4.8-4.3-.1-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.3-.1.6.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .2 0 .7-.3 1.3z"/></svg>
+  <span class="fab-label">¿Hablamos de vuestras cabañas?</span>
+</a>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotografías">
+  <button class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <img id="lbImg" src="" alt="Fotografía ampliada">
+  <button class="lb-next" id="lbNext" aria-label="Siguiente">›</button>
+</div>
+
+<script id="image-manifest" type="application/json">
+{
+  "portrait": "img/io-color.png",
+  "gallery": [
+    "img/image-2.jpg",
+    "img/image-1.jpg",
+    "img/image-4.jpg",
+    "img/image-3.jpg",
+    "img/image-6.jpg",
+    "img/image-5.jpg"
+  ]
+}
+</script>
+<script>
+  // ---- Config: número de WhatsApp centralizado (cambiar aquí una sola vez) ----
+  const WA_NUMBER = '34600000000';
+
+  document.querySelectorAll('[data-wa]').forEach((el) => {
+    const msg = el.getAttribute('data-wa-msg') || 'Hola Io, hemos visto la propuesta para Cabanas do Navia.';
+    el.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    el.target = '_blank';
+    el.rel = 'noopener';
+  });
+
+  // ---- Reveal on scroll con stagger por grupo ----
+  const groups = new Map();
+  document.querySelectorAll('.reveal').forEach((item) => {
+    const parent = item.parentElement;
+    if (!groups.has(parent)) groups.set(parent, 0);
+    const index = groups.get(parent);
+    item.style.transitionDelay = `${Math.min(index * 90, 450)}ms`;
+    groups.set(parent, index + 1);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
+
+  // ---- Topbar: estado al hacer scroll + línea de progreso + FAB ----
+  const topbar = document.getElementById('topbar');
+  const progress = document.getElementById('progress');
+  const fab = document.getElementById('fab');
+
+  function onScroll() {
+    const y = window.scrollY;
+    topbar.classList.toggle('scrolled', y > 30);
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = `${total > 0 ? (y / total) * 100 : 0}%`;
+    fab.classList.toggle('show', y > window.innerHeight * 0.7);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---- Vídeo de fondo del hero (con poster local mientras carga) ----
+  const heroVideo = document.getElementById('heroVideo');
+  if (heroVideo) {
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://player.vimeo.com/video/1210163004?background=1&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&playsinline=1';
+    iframe.title = 'Vídeo de fondo';
+    iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+    iframe.addEventListener('load', () => iframe.classList.add('loaded'));
+    heroVideo.appendChild(iframe);
+  }
+
+  // ---- Galería + retrato desde el manifiesto ----
+  const slots = Array.from(document.querySelectorAll('#photoGallery .photo-slot'));
+  const portrait = document.getElementById('aboutPortrait');
+  const manifestScript = document.getElementById('image-manifest');
+  let galleryImages = [];
+
+  try {
+    const manifest = JSON.parse(manifestScript.textContent || '{}');
+    if (portrait && manifest.portrait) {
+      portrait.style.backgroundImage = `url('${manifest.portrait}')`;
+    }
+    galleryImages = Array.isArray(manifest.gallery) ? manifest.gallery.filter(Boolean) : [];
+  } catch (error) {
+    console.warn('No se pudo leer el manifiesto de imágenes:', error);
+  }
+
+  slots.forEach((slot, index) => {
+    const src = galleryImages[index];
+    if (!src) { slot.style.display = 'none'; return; }
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `Muestra de reportaje fotográfico ${index + 1}`;
+    img.loading = 'lazy';
+    slot.appendChild(img);
+    slot.addEventListener('click', () => openLightbox(index));
+  });
+
+  // ---- Lightbox ----
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  let lbIndex = 0;
+
+  function openLightbox(index) {
+    lbIndex = index;
+    lbImg.src = galleryImages[lbIndex];
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function stepLightbox(direction) {
+    lbIndex = (lbIndex + direction + galleryImages.length) % galleryImages.length;
+    lbImg.src = galleryImages[lbIndex];
+  }
+
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', (e) => { e.stopPropagation(); stepLightbox(-1); });
+  document.getElementById('lbNext').addEventListener('click', (e) => { e.stopPropagation(); stepLightbox(1); });
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') stepLightbox(-1);
+    if (e.key === 'ArrowRight') stepLightbox(1);
+  });
+
+  // ---- FAQ: cerrar los demás al abrir uno ----
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        document.querySelectorAll('.faq-item[open]').forEach((other) => {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+
+  // ---- Formatos: inclinación 3D y brillo siguiendo el cursor ----
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.format').forEach((card) => {
+      const glare = card.querySelector('.format-glare');
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        const rotateX = (0.5 - y) * 8;
+        const rotateY = (x - 0.5) * 10;
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+        if (glare) glare.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(245,151,21,.14), transparent 62%)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+        if (glare) glare.style.background = '';
+      });
+    });
+  }
+</script>
+</body>
+</html>
