@@ -493,16 +493,34 @@
 
   /* ============ PROCESO ============ */
   .steps { max-width: 720px; margin: 0 auto; position: relative; padding-left: 8px; }
-  .steps::before { content: ''; position: absolute; left: 29px; top: 30px; bottom: 30px; width: 1px; background: linear-gradient(180deg, rgba(245,151,21,.7), rgba(245,151,21,.1)); }
+  .steps::before { content: ''; position: absolute; left: 29px; top: 30px; bottom: 30px; width: 2px; border-radius: 2px; background: rgba(245,151,21,.15); }
+  .steps-fill {
+    position: absolute; left: 29px; top: 30px; width: 2px; height: 0; border-radius: 2px;
+    background: linear-gradient(180deg, var(--ambar), var(--ambar-claro));
+    box-shadow: 0 0 12px rgba(245,151,21,.5);
+    will-change: height;
+  }
+  .steps-fill::after {
+    content: ''; position: absolute; left: 50%; bottom: -3px; transform: translateX(-50%);
+    width: 8px; height: 8px; border-radius: 50%; background: var(--ambar);
+    box-shadow: 0 0 0 4px rgba(245,151,21,.2), 0 0 14px rgba(245,151,21,.7);
+    opacity: 0; transition: opacity .3s;
+  }
+  .steps-fill.on::after { opacity: 1; }
   .step { display: flex; gap: 26px; align-items: flex-start; padding: 24px 0; position: relative; }
   .step-num {
     width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; z-index: 1;
     display: grid; place-items: center;
-    font-family: var(--mono); font-size: 12px; color: var(--ambar);
-    background: var(--negro); border: 1px solid rgba(245,151,21,.55);
+    font-family: var(--mono); font-size: 12px; color: rgba(245,151,21,.55);
+    background: var(--negro); border: 1px solid rgba(245,151,21,.35);
+    transition: color .4s var(--ease), border-color .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease), transform .4s var(--ease);
+  }
+  .step.active .step-num {
+    color: var(--negro); font-weight: 700; background: var(--ambar); border-color: var(--ambar);
+    box-shadow: 0 0 22px rgba(245,151,21,.45); transform: scale(1.08);
   }
   .step-body { padding-top: 8px; }
-  .step-body h3 { font-size: 1.06rem; font-weight: 600; letter-spacing: -.015em; color: var(--hueso); margin-bottom: 4px; }
+  .step-body h3 { font-size: 1.06rem; font-weight: 600; letter-spacing: -.015em; color: var(--hueso); margin-bottom: 4px; transition: color .4s; }
   .step-body p { font-size: .93rem; color: var(--niebla); font-weight: 300; }
 
   /* ============ QUIÉN SOY ============ */
@@ -942,7 +960,7 @@
         <h4>Incluye</h4>
         <ul class="includes"><li>Reportaje fotográfico profesional editado</li><li>4 Reels con dron FPV</li><li>2 Reels sociales complementarios</li><li>1 vídeo horizontal para la home</li><li>Modelo incluida en cámara</li><li>Derechos de uso completos</li></ul>
         <div class="program-footer">Requiere una noche de estancia en cabaña.</div>
-        <a class="btn program-cta" data-wa data-wa-msg="Hola Io, somos de Cabanas do Navia. Nos interesa el Programa 02 · Presencia Visual. ¿Cuándo podemos hablar?" href="#">Quiero posicionarme <span class="arrow">→</span></a>
+        <a class="btn program-cta" data-wa data-wa-msg="Hola Io, somos de Cabanas do Navia. Nos interesa el Programa 02 · Presencia Visual. ¿Cuándo podemos hablar?" href="#">Quiero dar el salto <span class="arrow">→</span></a>
       </div>
 
       <div class="program reveal">
@@ -1015,7 +1033,8 @@
     <span class="eyebrow reveal">El proceso</span>
     <h2 class="section-title reveal">Cómo trabajamos, <em>paso a paso</em></h2>
     <p class="section-intro reveal">Sin improvisación: cada producción se planifica sobre plano antes de encender la cámara.</p>
-    <div class="steps">
+    <div class="steps" id="steps">
+      <div class="steps-fill" id="stepsFill" aria-hidden="true"></div>
       <div class="step reveal"><div class="step-num">01</div><div class="step-body"><h3>Llamada inicial</h3><p>Para conocer las cabañas y objetivos concretos.</p></div></div>
       <div class="step reveal"><div class="step-num">02</div><div class="step-body"><h3>Plan de rodaje</h3><p>Con emplazamientos, horas de luz y guion visual.</p></div></div>
       <div class="step reveal"><div class="step-num">03</div><div class="step-body"><h3>Sesión en cabaña</h3><p>Planificada al minuto. Cero improvisación.</p></div></div>
@@ -1184,14 +1203,44 @@
   const progress = document.getElementById('progress');
   const fab = document.getElementById('fab');
 
+  // ---- Timeline del proceso: la línea se dibuja según el scroll ----
+  const stepsEl = document.getElementById('steps');
+  const stepsFill = document.getElementById('stepsFill');
+  const stepEls = stepsEl ? Array.from(stepsEl.querySelectorAll('.step')) : [];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function updateTimeline() {
+    if (!stepsEl || !stepsFill) return;
+    const trackTop = 30;                       // coincide con top del track
+    const rect = stepsEl.getBoundingClientRect();
+    const trackHeight = rect.height - 60;      // top:30 + bottom:30
+    if (reduceMotion) {
+      stepsFill.style.height = trackHeight + 'px';
+      stepEls.forEach((s) => s.classList.add('active'));
+      return;
+    }
+    const playhead = window.innerHeight * 0.62; // punto de lectura en el viewport
+    const fillPx = Math.max(0, Math.min(trackHeight, (playhead - rect.top) - trackTop));
+    stepsFill.style.height = fillPx + 'px';
+    stepsFill.classList.toggle('on', fillPx > 0 && fillPx < trackHeight);
+    stepEls.forEach((step) => {
+      const num = step.querySelector('.step-num');
+      const nr = num.getBoundingClientRect();
+      const numCenter = (nr.top + nr.height / 2) - rect.top;
+      step.classList.toggle('active', numCenter <= trackTop + fillPx + 4);
+    });
+  }
+
   function onScroll() {
     const y = window.scrollY;
     topbar.classList.toggle('scrolled', y > 30);
     const total = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.width = `${total > 0 ? (y / total) * 100 : 0}%`;
     fab.classList.toggle('show', y > window.innerHeight * 0.7);
+    updateTimeline();
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', updateTimeline, { passive: true });
   onScroll();
 
   // ---- Vídeo de fondo del hero (con poster local mientras carga) ----
