@@ -37,7 +37,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
   body {
     font-family: var(--grotesk);
     background: var(--negro);
@@ -46,7 +46,8 @@
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100%;
   }
   ::selection { background: rgba(245,151,21,.35); color: var(--hueso); }
   img { max-width: 100%; }
