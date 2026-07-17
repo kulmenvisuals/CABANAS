@@ -939,7 +939,7 @@
         <div class="program-name">Reels FPV Signature</div>
         <div class="program-tagline">Probar la especialidad, con volumen suficiente para ver resultados</div>
         <div class="program-price-row"><span class="program-price">490 €</span><span class="program-price-note">+ IVA</span></div>
-        <p class="program-desc">Cuatro reels con dron FPV cinematográfico, pensados como una serie coherente. La forma más directa de comprobar cómo cambia el alcance de vuestras cabañas cuando el contenido se sale del estándar del sector.</p>
+        <p class="program-desc">Cuatro reels con dron FPV y un reportaje fotográfico profesional. La forma más directa de comprobar cómo cambia la percepción de vuestras cabañas cuando el contenido se sale del estándar del sector.</p>
         <h4>Lo que os aporta</h4>
         <ul class="aporta"><li>Alcance orgánico rápido en Instagram y TikTok</li><li>Cuatro piezas para publicar escalonadas</li><li>Diferenciación inmediata frente a cualquier alojamiento de la zona</li><li>Una prueba real del FPV antes de dar pasos mayores</li></ul>
         <h4>Incluye</h4>
@@ -1156,7 +1156,7 @@
 
 <script id="image-manifest" type="application/json">
 {
-  "portrait": "img/io-color.png",
+  "portrait": "img/io-color.jpg",
   "gallery": [
     "img/image-2.jpg",
     "img/image-1.jpg",
@@ -1277,6 +1277,7 @@
     img.src = src;
     img.alt = `Muestra de reportaje fotográfico ${index + 1}`;
     img.loading = 'lazy';
+    img.decoding = 'async';
     slot.appendChild(img);
     slot.addEventListener('click', () => openLightbox(index));
   });
