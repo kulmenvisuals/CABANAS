@@ -346,8 +346,16 @@
   }
   .project-meta { text-align: center; max-width: 330px; margin: 0 auto; }
   .project-client { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--ambar); margin-bottom: 8px; }
-  .project-title { font-size: 1.14rem; font-weight: 600; letter-spacing: -.015em; margin-bottom: 8px; color: var(--hueso); }
-  .project-desc { font-size: .91rem; color: var(--niebla); line-height: 1.68; font-weight: 300; }
+  .project-title { font-size: 1.14rem; font-weight: 600; letter-spacing: -.015em; margin-bottom: 16px; color: var(--hueso); }
+  .project-metrics { display: flex; gap: 10px; margin: 0 0 14px; }
+  .project-metric {
+    flex: 1 1 0; min-width: 0; padding: 12px 8px; border-radius: 12px;
+    background: rgba(245,151,21,.07); border: 1px solid rgba(245,151,21,.25);
+  }
+  .project-metric strong { display: block; font-size: 1.2rem; font-weight: 700; letter-spacing: -.02em; color: var(--ambar); line-height: 1.05; }
+  .project-metric span { display: block; font-family: var(--mono); font-size: 8px; letter-spacing: .06em; text-transform: uppercase; color: var(--niebla-2); margin-top: 5px; line-height: 1.35; }
+  .project-desc { font-size: .88rem; color: var(--niebla); line-height: 1.6; font-weight: 300; }
+  .project-desc strong { color: var(--hueso); font-weight: 600; }
 
   .gallery-head { margin-top: clamp(72px, 8vw, 104px); display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
   .gallery-head h3 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 600; letter-spacing: -.02em; color: var(--hueso); }
@@ -823,7 +831,11 @@
         <div class="project-meta">
           <div class="project-client">Cabanas Ribeira Sacra</div>
           <div class="project-title">Reels FPV + reportaje fotográfico</div>
-          <p class="project-desc">Producción integral para un alojamiento rural premium en la Ribeira Sacra. Reels FPV para redes y reportaje fotográfico completo para web y portales.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><strong>+500.000</strong><span>visualizaciones</span></div>
+            <div class="project-metric"><strong>+4.000</strong><span>seguidores nuevos</span></div>
+          </div>
+          <p class="project-desc">En solo <strong>3 publicaciones</strong>. Producción integral: Reels FPV para redes y reportaje fotográfico completo para web y portales.</p>
         </div>
       </div>
       <div class="project reveal">
@@ -832,8 +844,12 @@
         </div>
         <div class="project-meta">
           <div class="project-client">Spanish Spaces</div>
-          <div class="project-title">Reels FPV inmobiliario</div>
-          <p class="project-desc">Contenido audiovisual para agencia inmobiliaria especializada en propiedades singulares. Reel pensado para atraer compradores nacionales e internacionales.</p>
+          <div class="project-title">Reels FPV + reportaje fotográfico</div>
+          <div class="project-metrics">
+            <div class="project-metric"><strong>210</strong><span>guardados / publicación</span></div>
+            <div class="project-metric"><strong>140</strong><span>compartidos / publicación</span></div>
+          </div>
+          <p class="project-desc">Medias por publicación en una <strong>campaña de 5 piezas</strong> para agencia inmobiliaria de propiedades singulares.</p>
         </div>
       </div>
       <div class="project reveal">
@@ -843,7 +859,11 @@
         <div class="project-meta">
           <div class="project-client">Villa Boutique 1880</div>
           <div class="project-title">Reel FPV cinematográfico</div>
-          <p class="project-desc">Pieza FPV para hotel boutique de gama alta. Recorrido inmersivo diseñado para transmitir el nivel de la propiedad en una sola toma continua.</p>
+          <div class="project-metrics">
+            <div class="project-metric"><strong>+830</strong><span>compartidos</span></div>
+            <div class="project-metric"><strong>+350</strong><span>guardados</span></div>
+          </div>
+          <p class="project-desc">Con un <strong>único reel</strong> de dron FPV para un hotel boutique de gama alta.</p>
         </div>
       </div>
     </div>
