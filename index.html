@@ -161,16 +161,17 @@
   .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
   .btn .arrow { transition: transform .25s var(--ease); }
   .btn:hover .arrow { transform: translateX(4px); }
-  .hero-stats {
-    display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
-    width: 100%; margin: 0 auto; border-radius: var(--r-md); overflow: hidden;
-    border: 1px solid var(--linea-fuerte);
+  .hero-proof {
+    display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 10px 16px;
+    padding: 12px 22px; border-radius: 9999px; border: 1px solid var(--linea-fuerte);
     background: rgba(9,9,11,.5); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    color: rgba(250,250,250,.82); font-size: .92rem; text-decoration: none; transition: border-color .3s;
   }
-  .stat { padding: 24px 30px; position: relative; }
-  .stat + .stat::before { content: ''; position: absolute; left: 0; top: 18%; bottom: 18%; width: 1px; background: var(--linea-fuerte); }
-  .stat strong { display: block; font-size: 27px; font-weight: 700; letter-spacing: -.02em; color: var(--hueso); margin-bottom: 2px; }
-  .stat span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; color: rgba(250,250,250,.72); line-height: 1.5; display: block; text-transform: uppercase; }
+  .hero-proof strong { color: var(--hueso); font-weight: 600; }
+  .hero-proof:hover { border-color: rgba(245,151,21,.6); }
+  .hero-proof-stars { display: inline-flex; gap: 3px; color: var(--ambar); }
+  .hero-proof-stars svg { width: 15px; height: 15px; }
+  .hero-proof-link { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ambar); }
 
   .scroll-cue {
     position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); z-index: 4;
@@ -331,7 +332,7 @@
   }
 
   /* ============ CASOS / PRUEBA ============ */
-  .projects { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 22px; align-items: start; }
+  .projects { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 26px; align-items: start; }
   .project { display: flex; flex-direction: column; }
   .project-video {
     border-radius: var(--r-md); overflow: hidden; position: relative;
@@ -711,41 +712,6 @@
   .format-strategy:hover .format-icon::after { inset: 4px; opacity: .75; }
 
   /* ============ TÉCNICAS ============ */
-  .tech-strip {
-    margin-top: 26px; padding: 30px 32px; border-radius: var(--r-lg);
-    background: var(--carbon-2); border: 1px solid var(--linea);
-  }
-  .tech-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--ambar); display: block; margin-bottom: 12px; }
-  .tech-strip > p { font-size: .98rem; color: var(--niebla); line-height: 1.7; font-weight: 300; max-width: 760px; }
-  .tech-strip > p strong { color: var(--hueso); font-weight: 600; }
-  .tech-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
-  .tech-chips li {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 9px 16px; border-radius: 9999px;
-    background: rgba(250,250,250,.04); border: 1px solid var(--linea-fuerte);
-    font-size: .86rem; color: var(--niebla); font-weight: 400;
-  }
-  .tech-chips li.tech-signature {
-    background: rgba(245,151,21,.1); border-color: rgba(245,151,21,.45); color: var(--hueso); font-weight: 600;
-    position: relative; padding-left: 30px;
-  }
-  .tech-chips li.tech-signature::before {
-    content: ''; position: absolute; left: 9px; top: 50%; margin-top: -6px;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: radial-gradient(circle 2px at 50% 1.5px, var(--ambar) 97%, transparent 100%);
-    animation: orbit 4s linear infinite;
-  }
-  .tech-chips li.tech-signature span {
-    font-family: var(--mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--ambar);
-  }
-  .tech-note {
-    font-size: .95rem; color: var(--niebla); line-height: 1.7; font-weight: 300;
-    padding-top: 20px; border-top: 1px solid var(--linea); margin: 0;
-  }
-  .tech-note em { font-style: normal; color: var(--ambar); font-weight: 600; }
-  @media (prefers-reduced-motion: reduce) {
-    .tech-chips li.tech-signature::before { animation: none; }
-  }
 
   /* ============ PROGRAMAS · 2 COLUMNAS ============ */
   .programs.programs-2 { grid-template-columns: repeat(2, minmax(0,1fr)); max-width: 920px; margin: 0 auto; }
@@ -833,9 +799,6 @@
     .top-nav a:not(.top-cta) { padding: 9px 10px; font-size: 12.5px; }
     .top-nav a.top-cta { margin-left: 8px; }
   }
-  @media (max-width: 1180px) {
-    .projects { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 40px 26px; }
-  }
   @media (max-width: 980px) {
     .top-nav a[href="#diagnostico"], .top-nav a[href="#quien"] { display: none; }
   }
@@ -854,7 +817,6 @@
     .program.featured { transform: none; }
     .program.featured:hover { transform: translateY(-5px); }
     .project-video { max-width: 300px; }
-    .hero-stats { max-width: 100%; }
   }
   @media (max-width: 720px) {
     .wrap, .wrap-narrow { padding: 0 22px; }
@@ -867,9 +829,8 @@
     .hero { min-height: auto; padding: 132px 0 96px; }
     .hero-eyebrow { font-size: 9.5px; letter-spacing: .14em; }
     .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-proof { border-radius: var(--r-md); text-align: center; padding: 16px 20px; }
     .btn { width: 100%; }
-    .hero-stats { grid-template-columns: 1fr; }
-    .stat + .stat::before { left: 10%; right: 10%; top: 0; bottom: auto; width: auto; height: 1px; }
     .scroll-cue { display: none; }
     .photo-gallery { grid-template-columns: 1fr; }
     .bridge { padding: 34px 24px; }
@@ -878,7 +839,6 @@
     .fab { right: 18px; bottom: 18px; }
     .faq-a { padding-right: 4px; }
     .benefit { flex-direction: column; }
-    .tech-strip { padding: 26px 22px; }
     .seasons-calendar { grid-template-columns: 1fr; }
     .seasons-foot .btn { width: 100%; }
     .bespoke { flex-direction: column; align-items: flex-start; }
@@ -916,18 +876,18 @@
   <div class="wrap hero-content">
     <div class="hero-eyebrow reveal">Estudio visual para alojamientos · Galicia</div>
     <h1 class="reveal">Tu alojamiento ya es especial. <em>Haz que online también lo parezca.</em></h1>
-    <p class="lead reveal">Contenido visual estratégico para hoteles, casas rurales y alojamientos que quieren ser recordados, no simplemente comparados.</p>
+    <p class="lead reveal">Contenido que convierte tu alojamiento en una marca y te trae clientes nuevos. Para hoteles, casas rurales y alojamientos que quieren ser elegidos, no comparados por precio.</p>
     <div class="hero-actions reveal">
       <a class="btn" data-wa data-wa-msg="Hola Io, tengo un alojamiento y me gustaría saber cómo se ve online ahora mismo." href="#">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.4-.7-2.9-1.1-4.7-4.1-4.8-4.3-.1-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.3-.1.6.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .2 0 .7-.3 1.3z"/></svg>
         Quiero saber cómo me ven
       </a>
     </div>
-    <div class="hero-stats reveal" role="list">
-      <div class="stat" role="listitem"><strong>1 producción</strong><span>toda tu base visual</span></div>
-      <div class="stat" role="listitem"><strong>+500.000</strong><span>visualizaciones en un solo proyecto</span></div>
-      <div class="stat" role="listitem"><strong>10 días</strong><span>entrega desde el rodaje</span></div>
-    </div>
+    <a class="hero-proof reveal" href="#trabajo">
+      <span class="hero-proof-stars" role="img" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>
+      <span>Alojamientos que ya han ganado <strong>visibilidad y seguidores</strong> con Kulmen</span>
+      <span class="hero-proof-link">Ver resultados →</span>
+    </a>
   </div>
   <a class="scroll-cue" href="#diagnostico" aria-label="Bajar a la siguiente sección">Descubrir<span class="line"></span></a>
 </section>
@@ -1012,7 +972,7 @@
         </div>
         <span class="format-kicker">Fase 02</span>
         <h3>Producción</h3>
-        <p>Fotografía, filmmaking, lifestyle, dron y FPV. Una sola persona dirige y ejecuta todo, así que la idea no se diluye entre proveedores. Cada técnica entra cuando aporta a la historia, no porque toque.</p>
+        <p>Creamos las imágenes y los vídeos que hacen que alguien se pare, se imagine allí y quiera reservar. Una sola persona dirige y ejecuta todo, así que la idea no se diluye entre proveedores.</p>
       </div>
       <div class="format format-reel reveal">
         <span class="format-glare" aria-hidden="true"></span>
@@ -1025,19 +985,6 @@
         <p>El material sale versionado y ordenado para cada punto de contacto: web, Booking, Instagram, TikTok, stories y prensa. Con un mapa de uso que dice qué publicar, en qué orden y con qué llamada a la acción.</p>
       </div>
     </div>
-
-    <div class="tech-strip reveal">
-      <span class="tech-kicker">Las técnicas</span>
-      <p>Fotografía, filmmaking, lifestyle, dron convencional y <strong>FPV</strong> se combinan según la historia que necesite contar cada propiedad. La técnica está al servicio de la venta, nunca al revés.</p>
-      <ul class="tech-chips">
-        <li>Fotografía</li>
-        <li>Filmmaking</li>
-        <li>Lifestyle y experiencia</li>
-        <li>Dron convencional</li>
-        <li class="tech-signature">FPV <span>signature</span></li>
-      </ul>
-      <p class="tech-note">El FPV es nuestra firma: pocos operadores en Galicia pueden ofrecerlo, porque exige años de práctica, homologación EASA/AESA y equipo propio. Pero no todas las casas lo necesitan. En una cabaña pequeña, a veces convence mucho más el vapor del café, el bosque a través del ventanal y la chimenea encendida. Tenemos FPV <em>y sabemos cuándo no usarlo</em>.</p>
-    </div>
   </div>
 </section>
 
@@ -1046,12 +993,12 @@
   <div class="wrap">
     <span class="eyebrow reveal">Casos</span>
     <h2 class="section-title reveal">Lo que pasa cuando el contenido <em>está a la altura</em></h2>
-    <p class="section-intro reveal">Alojamientos turísticos e inmobiliarias en Galicia y España. Cada proyecto se plantea desde un objetivo concreto y se mide por lo que devuelve, no por cuántos archivos entrega.</p>
+    <p class="section-intro reveal">Alojamientos turísticos en Galicia y España. Cada proyecto se plantea desde un objetivo concreto y se mide por lo que devuelve, no por cuántos archivos entrega.</p>
 
     <div class="projects">
       <div class="project reveal">
         <div class="project-video">
-          <iframe src="https://player.vimeo.com/video/1210437296?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Reel FPV — Cabanas Ribeira Sacra"></iframe>
+          <iframe src="https://player.vimeo.com/video/1210437296?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Reel — Cabanas Ribeira Sacra"></iframe>
         </div>
         <div class="project-meta">
           <div class="project-client">Cabanas Ribeira Sacra</div>
@@ -1060,26 +1007,12 @@
             <div class="project-metric"><strong>+500.000</strong><span>visualizaciones</span></div>
             <div class="project-metric"><strong>+4.000</strong><span>seguidores nuevos</span></div>
           </div>
-          <p class="project-desc">En solo <strong>3 publicaciones</strong>. Reportaje fotográfico completo para web y portales, más piezas verticales para redes. Aquí el FPV sí encajaba con el espacio.</p>
+          <p class="project-desc">En solo <strong>3 publicaciones</strong>. Un alojamiento que pasó de ser uno más a tener comunidad propia, con material para web, portales y redes.</p>
         </div>
       </div>
       <div class="project reveal">
         <div class="project-video">
-          <iframe src="https://player.vimeo.com/video/1210534720?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Reel FPV — Spanish Spaces"></iframe>
-        </div>
-        <div class="project-meta">
-          <div class="project-client">Spanish Spaces</div>
-          <div class="project-title">Campaña visual · 5 piezas</div>
-          <div class="project-metrics">
-            <div class="project-metric"><strong>210</strong><span>guardados / publicación</span></div>
-            <div class="project-metric"><strong>140</strong><span>compartidos / publicación</span></div>
-          </div>
-          <p class="project-desc">Medias por publicación en una <strong>campaña completa</strong> para una agencia inmobiliaria de propiedades singulares. Foto, vídeo y aéreo bajo un mismo concepto.</p>
-        </div>
-      </div>
-      <div class="project reveal">
-        <div class="project-video">
-          <iframe src="https://player.vimeo.com/video/1210443257?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Reel FPV — Villa Boutique 1880"></iframe>
+          <iframe src="https://player.vimeo.com/video/1210443257?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Reel — Villa Boutique 1880"></iframe>
         </div>
         <div class="project-meta">
           <div class="project-client">Villa Boutique 1880</div>
@@ -1088,7 +1021,7 @@
             <div class="project-metric"><strong>+830</strong><span>compartidos</span></div>
             <div class="project-metric"><strong>+350</strong><span>guardados</span></div>
           </div>
-          <p class="project-desc">Con una <strong>sola pieza</strong> para un hotel boutique de gama alta. Un caso donde el recorrido FPV era exactamente lo que pedía el edificio.</p>
+          <p class="project-desc">Con una <strong>sola pieza</strong> para un hotel boutique de gama alta. Una pieza que se compartió cientos de veces y puso el hotel delante de público nuevo.</p>
         </div>
       </div>
       <div class="project reveal">
@@ -1331,14 +1264,14 @@
   <div class="wrap-narrow">
     <span class="eyebrow reveal">El proceso</span>
     <h2 class="section-title reveal">Cómo trabajamos, <em>paso a paso</em></h2>
-    <p class="section-intro reveal">Sin improvisación: cada producción se decide sobre plano antes de encender la cámara.</p>
+    <p class="section-intro reveal">Tú te ocupas de tu alojamiento. Del resto nos encargamos nosotros.</p>
     <div class="steps" id="steps">
       <div class="steps-fill" id="stepsFill" aria-hidden="true"></div>
       <div class="step reveal"><div class="step-num">01</div><div class="step-body"><h3>Diagnóstico</h3><p>15 minutos para ver el alojamiento, lo que ya publicas y a quién quieres atraer.</p></div></div>
       <div class="step reveal"><div class="step-num">02</div><div class="step-body"><h3>Concepto y plan</h3><p>Qué hay que vender, con qué piezas y en qué orden. De ahí sale el guion visual.</p></div></div>
-      <div class="step reveal"><div class="step-num">03</div><div class="step-body"><h3>Producción</h3><p>Emplazamientos, horas de luz y técnicas decididas de antemano. Cero improvisación.</p></div></div>
-      <div class="step reveal"><div class="step-num">04</div><div class="step-body"><h3>Postproducción</h3><p>Retoque, etalonaje y sonido. Versiones por canal y cutdowns.</p></div></div>
-      <div class="step reveal"><div class="step-num">05</div><div class="step-body"><h3>Entrega + Mapa de Contenido</h3><p>En 10 días laborables, con el plan de qué publicar, cuándo y con qué CTA.</p></div></div>
+      <div class="step reveal"><div class="step-num">03</div><div class="step-body"><h3>Producción</h3><p>Un día en tu alojamiento, todo planificado de antemano. Tú no tienes que preparar nada más.</p></div></div>
+      <div class="step reveal"><div class="step-num">04</div><div class="step-body"><h3>Material listo para publicar</h3><p>Cada pieza preparada para el sitio donde va a vivir: tu web, los portales y tus redes.</p></div></div>
+      <div class="step reveal"><div class="step-num">05</div><div class="step-body"><h3>Plan para captar clientes</h3><p>Te entrego el material con el plan de qué publicar, cuándo y cómo convertir esa atención en reservas.</p></div></div>
     </div>
   </div>
 </section>
@@ -1356,13 +1289,13 @@
         </div>
       </div>
       <div class="about-body reveal">
-        <p>Soy <strong>directora creativa</strong> especializada en contenido para alojamientos, turismo y hospitality en Galicia. Dirijo y ejecuto cada proyecto bajo mi marca, Kulmen Visuals, con base en Pontevedra. Y sí, también piloto: soy operadora FPV homologada, aunque eso sea solo una de las herramientas.</p>
+        <p>Soy <strong>directora creativa</strong> especializada en contenido para alojamientos, turismo y hospitality en Galicia. Dirijo y ejecuto cada proyecto bajo mi marca, Kulmen Visuals, con base en Pontevedra.</p>
         <p>Antes de especializarme en espacios, pasé años en agencias y productoras, viendo de cerca qué contenido mueve una decisión de compra y qué contenido solo ocupa espacio en el feed. Esa mirada es la que aplico hoy a cada proyecto: <strong>no grabo para que quede bonito, grabo para que venda</strong>. Todo bajo un mismo criterio, sin equipos externos ni subcontratación, para que la idea no se diluya por el camino.</p>
         <p class="about-statement">El contenido no es un adorno: <strong>es lo que decide si alguien se queda mirando o pasa al siguiente</strong>.</p>
         <div class="credentials">
           <div class="credential reveal"><div class="credential-label">Especialidad</div><div class="credential-value">Turismo, hospitality y alojamientos premium</div></div>
           <div class="credential reveal"><div class="credential-label">Experiencia</div><div class="credential-value">Productoras de cine y agencias de marketing</div></div>
-          <div class="credential reveal"><div class="credential-label">Certificación</div><div class="credential-value">Operadora oficial EASA / AESA</div></div>
+          <div class="credential reveal"><div class="credential-label">Enfoque</div><div class="credential-value">Contenido que se mide en clientes, no en archivos</div></div>
         </div>
       </div>
     </div>
@@ -1382,10 +1315,6 @@
       <details class="faq-item">
         <summary>¿Sale modelo en las fotos y vídeos?<span class="faq-icon" aria-hidden="true"></span></summary>
         <div class="faq-a">Solo si el concepto lo pide, y se presupuesta aparte. A veces funciona una pareja, otras una familia, otras el personal real del alojamiento, y muchas veces lo mejor es que no aparezca nadie. Lo mismo con estilismo, maquillaje y props: son decisiones creativas con coste variable, así que se tratan como opcionales en lugar de meterlas de serie.</div>
-      </details>
-      <details class="faq-item">
-        <summary>¿Usas FPV en todos los proyectos?<span class="faq-icon" aria-hidden="true"></span></summary>
-        <div class="faq-a">Solo cuando aporta. El FPV es espectacular para mostrar recorrido, escala y sensación de estar dentro del espacio, y es la firma de la casa. Pero en un espacio pequeño, un vuelo entrando por la puerta y saliendo por la ventana puede acabar pareciendo una demostración de pilotaje en lugar de una razón para reservar. Se decide en la fase de concepto.</div>
       </details>
       <details class="faq-item">
         <summary>¿Qué es el Mapa de Contenido?<span class="faq-icon" aria-hidden="true"></span></summary>
