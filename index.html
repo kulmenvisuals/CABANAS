@@ -197,6 +197,7 @@
     margin-bottom: 20px; max-width: 780px; color: var(--hueso); text-wrap: balance;
   }
   h2.section-title em { font-style: normal; color: var(--ambar); }
+  .section-intro strong { color: var(--hueso); font-weight: 600; }
   .section-intro { font-size: 1.02rem; color: var(--niebla); max-width: 700px; margin-bottom: 54px; line-height: 1.75; font-weight: 300; }
 
   /* ============ DIAGNÓSTICO ============ */
@@ -433,7 +434,7 @@
   }
   .program-num { font-family: var(--mono); font-size: 10px; color: var(--ambar); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 16px; }
   .program-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -.025em; color: var(--hueso); margin-bottom: 8px; }
-  .program-tagline { font-size: .92rem; color: var(--niebla); margin-bottom: 24px; line-height: 1.55; font-weight: 300; }
+  .program-for { font-size: .95rem; color: var(--niebla); margin-bottom: 24px; line-height: 1.6; font-weight: 300; }
   .program-price-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
   .program-price { font-size: 2.5rem; font-weight: 700; letter-spacing: -.03em; color: var(--hueso); line-height: 1; }
   .program-price-note { font-family: var(--mono); font-size: 11px; color: var(--niebla-2); }
@@ -443,8 +444,7 @@
     font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ambar);
     align-self: flex-start;
   }
-  .program-desc { font-size: .93rem; color: var(--niebla); line-height: 1.7; font-weight: 300; margin: 20px 0 22px; padding-bottom: 22px; border-bottom: 1px solid var(--linea); }
-  .program h4 { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--ambar); margin: 20px 0 12px; }
+  .program h4 { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--ambar); margin: 26px 0 12px; padding-top: 22px; border-top: 1px solid var(--linea); }
   .program ul { list-style: none; }
   .program li { font-size: .92rem; color: var(--niebla); padding: 5px 0 5px 26px; position: relative; line-height: 1.55; font-weight: 300; }
   .program li::before {
@@ -453,6 +453,9 @@
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
   }
+  .program li strong, .seasons-col li strong { color: var(--hueso); font-weight: 600; }
+  .program-result { margin-top: 22px; padding: 16px 18px; border-radius: var(--r-md); background: rgba(245,151,21,.07); border: 1px solid rgba(245,151,21,.22); font-size: .92rem; color: var(--hueso); line-height: 1.55; }
+  .program-result span { display: block; font-family: var(--mono); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--ambar); margin-bottom: 6px; }
   .program-footer { margin-top: auto; padding-top: 22px; font-size: .8rem; color: var(--niebla-2); line-height: 1.6; font-weight: 300; }
   .program-cta { margin-top: 18px; width: 100%; padding: 15px 20px; font-size: 14px; }
   .program-cta.ghost { background: transparent; color: var(--hueso); border: 1px solid var(--linea-fuerte); box-shadow: none; }
@@ -717,28 +720,6 @@
   .programs.programs-2 { grid-template-columns: repeat(2, minmax(0,1fr)); max-width: 920px; margin: 0 auto; }
   .program-step { font-family: var(--mono); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--niebla-2); margin-bottom: 8px; }
 
-  /* ============ ENTREGABLES PLEGABLES ============ */
-  .prog-details { margin-top: 20px; border-top: 1px solid var(--linea); }
-  .prog-details > summary {
-    list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 14px;
-    padding: 16px 2px 4px; font-family: var(--mono); font-size: 10px; letter-spacing: .18em;
-    text-transform: uppercase; color: var(--ambar); transition: color .25s;
-  }
-  .prog-details > summary::-webkit-details-marker { display: none; }
-  .prog-details > summary:hover { color: var(--ambar-claro); }
-  .prog-details > summary .chev {
-    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; position: relative;
-    border: 1px solid rgba(245,151,21,.45); transition: transform .35s var(--ease), background .3s;
-  }
-  .prog-details > summary .chev::before, .prog-details > summary .chev::after {
-    content: ''; position: absolute; top: 50%; left: 50%; background: var(--ambar); transition: background .3s;
-  }
-  .prog-details > summary .chev::before { width: 9px; height: 1.5px; transform: translate(-50%,-50%); }
-  .prog-details > summary .chev::after { width: 1.5px; height: 9px; transform: translate(-50%,-50%); }
-  .prog-details[open] > summary .chev { transform: rotate(45deg); background: var(--ambar); }
-  .prog-details[open] > summary .chev::before, .prog-details[open] > summary .chev::after { background: var(--negro); }
-  .prog-details[open] > summary { color: var(--niebla-2); }
-
   /* ============ SEASONS · PANEL DE CONTINUIDAD ============ */
   .seasons {
     margin-top: 26px; padding: 44px 40px; border-radius: var(--r-lg); position: relative;
@@ -758,9 +739,7 @@
   .seasons-price { text-align: right; flex-shrink: 0; }
   .seasons-price strong { display: block; font-size: 2.4rem; font-weight: 700; letter-spacing: -.03em; color: var(--hueso); line-height: 1; }
   .seasons-price span { font-family: var(--mono); font-size: 11px; color: var(--niebla-2); display: block; margin-top: 8px; }
-  .seasons-body { font-size: .98rem; color: var(--niebla); line-height: 1.8; font-weight: 300; max-width: 720px; margin: 26px 0 0; padding-top: 26px; border-top: 1px solid var(--linea); }
-  .seasons-body strong { color: var(--hueso); font-weight: 600; }
-  .seasons-cols { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 26px; margin-top: 30px; }
+  .seasons-cols { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 40px; margin-top: 30px; padding-top: 28px; border-top: 1px solid var(--linea); }
   .seasons-col h4 { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--ambar); margin-bottom: 12px; }
   .seasons-col ul { list-style: none; }
   .seasons-col li { font-size: .9rem; color: var(--niebla); padding: 5px 0 5px 24px; position: relative; line-height: 1.55; font-weight: 300; }
@@ -770,7 +749,7 @@
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
   }
-  .seasons-calendar { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 30px; }
+  .seasons-calendar { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
   .season-card {
     padding: 18px 18px 20px; border-radius: var(--r-md);
     background: rgba(9,9,11,.45); border: 1px solid var(--linea);
@@ -1101,45 +1080,47 @@
   <div class="wrap">
     <span class="eyebrow reveal">Formas de trabajar</span>
     <h2 class="section-title reveal">Primero se construye la base. Después <em>se mantiene viva</em></h2>
-    <p class="section-intro reveal">No hay packs pequeño, mediano y grande. Hay una producción que crea tu base visual, una campaña completa para cuando hay que renovarlo todo, y una colaboración estacional que solo tiene sentido cuando la base ya existe.</p>
+    <p class="section-intro reveal">Tres formas de trabajar, cada una para un momento distinto. <strong>Signature</strong> crea tu base visual. <strong>Campaign</strong> es para cuando hay que renovarlo todo. <strong>Seasons</strong> mantiene esa base viva durante el año, y llega siempre después.</p>
 
     <div class="programs programs-2">
       <div class="program featured reveal">
         <div class="program-badge">Empieza aquí</div>
-        <div class="program-step">Entrada</div>
+        <div class="program-step">Para empezar</div>
         <div class="program-name">Kulmen Signature</div>
-        <div class="program-tagline">La transformación inicial. Tu nueva base visual, en una sola producción.</div>
-        <div class="program-price-row"><span class="program-price">790 €</span><span class="program-price-note">+ IVA</span></div>
-        <p class="program-desc">En una jornada creamos el material que va a sostener tu web, tus portales y tus redes durante meses. No son piezas sueltas: es una base coherente, con un plan de uso detrás.</p>
-        <h4>Lo que te aporta</h4>
-        <ul class="aporta"><li>Una base visual nueva y completa, no un puñado de archivos</li><li>Material suficiente para publicar con criterio durante meses</li><li>Una percepción online a la altura del producto físico</li><li>Un plan claro de qué publicar, cuándo y por qué</li></ul>
-        <details class="prog-details">
-          <summary>Ver todo lo que incluye<span class="chev" aria-hidden="true"></span></summary>
-          <h4>Estrategia previa</h4>
-          <ul class="includes"><li>Análisis del alojamiento y de tu presencia actual</li><li>Concepto creativo</li><li>Planificación de la producción</li></ul>
-          <h4>1 producción de hasta 5 horas</h4>
-          <ul class="includes"><li>35-40 fotografías finales</li><li>3 Reels verticales</li><li>8-10 clips verticales reutilizables para stories y web</li><li>Aéreo convencional y/o FPV cuando aporte al concepto</li><li>Edición, color y sonido</li><li>Derechos de uso comercial</li></ul>
-          <h4>+ Mapa de Contenido Kulmen</h4>
-          <ul class="includes"><li>Cómo utilizar el material</li><li>Orden recomendado de publicación e ideas de CTA</li><li>8-10 ideas de contenido futuro</li><li>Recomendaciones sobre perfil y web</li></ul>
-        </details>
-        <div class="program-footer">Requiere una noche de estancia en el alojamiento. Casting y talento, estilismo, maquillaje y props son opcionales y se presupuestan aparte.</div>
+        <p class="program-for">Para alojamientos que quieren dar el salto de una vez: imagen nueva para la web, los portales y las redes.</p>
+        <div class="program-price-row"><span class="program-price">790 €</span><span class="program-price-note">+ IVA · pago único</span></div>
+        <h4>Qué recibes</h4>
+        <ul class="includes">
+          <li>Estudio del alojamiento y concepto creativo antes de rodar</li>
+          <li>Una sesión de rodaje de hasta 5 horas en tu alojamiento</li>
+          <li><strong>35-40 fotografías</strong> listas para web y portales</li>
+          <li><strong>3 reels</strong> y 8-10 clips cortos para stories y web</li>
+          <li>Mapa de Contenido: qué publicar, en qué orden y con qué mensaje</li>
+          <li>Derechos de uso comercial</li>
+        </ul>
+        <p class="program-result"><span>El resultado</span>Una base visual coherente para publicar con criterio durante meses.</p>
+        <div class="program-footer">Requiere una noche de estancia en el alojamiento. Modelos, estilismo y props son opcionales y se presupuestan aparte.</div>
         <a class="btn program-cta" data-wa data-wa-msg="Hola Io, tengo un alojamiento y me interesa Kulmen Signature. ¿Cuándo podemos hablar?" href="#">Quiero esta base <span class="arrow">→</span></a>
       </div>
 
       <div class="program reveal">
-        <div class="program-step">Premium</div>
+        <div class="program-step">Para relanzar</div>
         <div class="program-name">Kulmen Campaign</div>
-        <div class="program-tagline">Una campaña visual completa para posicionar el alojamiento.</div>
+        <p class="program-for">Para aperturas, reformas o reposicionamientos: cuando no basta con actualizar y hay que relanzarlo todo.</p>
         <div class="program-price-row"><span class="program-price">1.190 €</span><span class="program-price-note">+ IVA · desde</span></div>
-        <p class="program-desc">Para aperturas, reposicionamientos o propiedades que necesitan renovarlo absolutamente todo. Aquí no se contrata una sesión: se contrata una campaña, con dirección creativa y material versionado para cada canal.</p>
-        <h4>Lo que te aporta</h4>
-        <ul class="aporta"><li>Un relanzamiento visual completo, no una actualización</li><li>Un vídeo hero que sostiene la home y la publicidad</li><li>Material para una temporada entera, incluida pauta pagada</li><li>Cada pieza versionada para el canal donde va a vivir</li></ul>
-        <details class="prog-details">
-          <summary>Ver todo lo que incluye<span class="chev" aria-hidden="true"></span></summary>
-          <h4>Incluye</h4>
-          <ul class="includes"><li>Dirección creativa</li><li>Jornada completa de producción</li><li>55-70 fotografías finales</li><li>5 Reels verticales</li><li>1 vídeo hero para web y campaña</li><li>Dron convencional y FPV cuando tenga sentido</li><li>Tomas lifestyle y de experiencia</li><li>Banco de clips, versiones y cutdowns</li><li>Mapa de Contenido y planificación de campaña</li><li>Derechos de uso comercial</li></ul>
-        </details>
-        <div class="program-footer">Rango de 1.190 € a 1.290 € + IVA según alcance y número de espacios. Casting y talento, estilismo y props se presupuestan aparte.</div>
+        <h4>Todo lo de Signature, y además</h4>
+        <ul class="includes">
+          <li>Dirección creativa de una campaña completa</li>
+          <li>Jornada completa de rodaje</li>
+          <li><strong>55-70 fotografías</strong> en lugar de 35-40</li>
+          <li><strong>5 reels</strong> en lugar de 3</li>
+          <li><strong>1 vídeo principal</strong> para tu web y tu publicidad</li>
+          <li>Escenas de experiencia: cómo se vive el alojamiento</li>
+          <li>Versiones de cada pieza para cada canal, anuncios incluidos</li>
+          <li>Plan de campaña junto al Mapa de Contenido</li>
+        </ul>
+        <p class="program-result"><span>El resultado</span>Un relanzamiento visual completo, con material para una temporada entera.</p>
+        <div class="program-footer">De 1.190 € a 1.290 € + IVA según el número de espacios. Modelos, estilismo y props son opcionales y se presupuestan aparte.</div>
         <a class="btn program-cta ghost" data-wa data-wa-msg="Hola Io, tengo un alojamiento y me interesa Kulmen Campaign. ¿Cuándo podemos hablar?" href="#">Quiero la campaña</a>
       </div>
     </div>
@@ -1152,61 +1133,41 @@
     <div class="seasons reveal">
       <div class="seasons-head">
         <div>
-          <span class="seasons-order"><b>Después</b> · no antes</span>
+          <span class="seasons-order"><b>Después</b> de Signature · no antes</span>
           <div class="seasons-name">Kulmen Seasons</div>
-          <p class="seasons-tagline">Contenido nuevo para cada estación, sin organizar una producción desde cero cada vez.</p>
+          <p class="seasons-tagline">Para alojamientos que ya tienen su base y quieren contenido nuevo en cada estación, sin empezar de cero cada vez.</p>
         </div>
         <div class="seasons-price">
           <strong>450 €</strong>
-          <span>+ IVA / mes · 1.350 € por trimestre</span>
+          <span>+ IVA / mes · mínimo 6 meses</span>
         </div>
       </div>
 
-      <p class="seasons-body">Esto no se contrata el primer día. Primero hacemos Signature, ves cómo trabajamos y qué te devuelve el material. <strong>Si entonces tiene sentido mantener la base viva, hablamos de Seasons.</strong> Y no es un rodaje al mes: los alojamientos cambian de producto con las estaciones, y esa es la cadencia natural. Primavera no es verano, y octubre no es enero.</p>
-
-      <div class="seasons-calendar">
-        <div class="season-card reveal"><div class="season-when">Enero</div><p class="season-what">Escapadas de invierno, chimenea, gastronomía.</p></div>
-        <div class="season-card reveal"><div class="season-when">Marzo · Abril</div><p class="season-what">Primavera, naturaleza, Semana Santa.</p></div>
-        <div class="season-card reveal"><div class="season-when">Junio</div><p class="season-what">Verano, exterior, actividades, costa.</p></div>
-        <div class="season-card reveal"><div class="season-when">Sept · Octubre</div><p class="season-what">Otoño, vendimia, desconexión, romántico.</p></div>
-      </div>
-
-      <details class="prog-details">
-        <summary>Ver qué incluye cada trimestre<span class="chev" aria-hidden="true"></span></summary>
-        <div class="seasons-cols">
-          <div class="seasons-col">
-            <h4>Producción</h4>
-            <ul>
-              <li>1 producción estacional de hasta 4 h</li>
-              <li>30 fotografías</li>
-              <li>6 Reels</li>
-              <li>Material aéreo o FPV cuando corresponda</li>
-              <li>Banco de clips y stories</li>
-              <li>Contenido ligado a temporada, experiencias y ofertas</li>
-            </ul>
-          </div>
-          <div class="seasons-col">
-            <h4>Estrategia</h4>
-            <ul>
-              <li>Planificación trimestral</li>
-              <li>Ideas mensuales de contenido</li>
-              <li>CTAs para cada pieza</li>
-              <li>Recomendaciones según lo que haya funcionado</li>
-            </ul>
-          </div>
-          <div class="seasons-col">
-            <h4>Seguimiento</h4>
-            <ul>
-              <li>Revisión trimestral de métricas</li>
-              <li>Qué repetir y qué cambiar en la siguiente producción</li>
-              <li>Ajuste del calendario a tu ocupación real</li>
-            </ul>
+      <div class="seasons-cols">
+        <div class="seasons-col">
+          <h4>Qué recibes cada trimestre</h4>
+          <ul>
+            <li>Una sesión de rodaje de temporada de hasta 4 horas</li>
+            <li><strong>30 fotografías</strong></li>
+            <li><strong>6 reels</strong> y clips para stories</li>
+            <li>Contenido ligado a la temporada, tus experiencias y tus ofertas</li>
+            <li>Plan del trimestre, con el mensaje de cada pieza</li>
+            <li>Revisión de resultados: qué repetir y qué cambiar</li>
+          </ul>
+        </div>
+        <div class="seasons-col">
+          <h4>Una producción por estación</h4>
+          <div class="seasons-calendar">
+            <div class="season-card"><div class="season-when">Enero</div><p class="season-what">Invierno, chimenea, gastronomía.</p></div>
+            <div class="season-card"><div class="season-when">Marzo · Abril</div><p class="season-what">Primavera, naturaleza, Semana Santa.</p></div>
+            <div class="season-card"><div class="season-when">Junio</div><p class="season-what">Verano, exterior, actividades.</p></div>
+            <div class="season-card"><div class="season-when">Sept · Octubre</div><p class="season-what">Otoño, vendimia, desconexión.</p></div>
           </div>
         </div>
-      </details>
+      </div>
 
       <div class="seasons-foot">
-        <p class="seasons-note">Facturable como 450 € + IVA al mes, con un compromiso mínimo de seis meses. La producción estacional se agenda de común acuerdo dentro de cada trimestre.</p>
+        <p class="seasons-note">450 € + IVA al mes, o 1.350 € por trimestre. Cada producción se agenda contigo dentro de su trimestre, ajustada a tu ocupación real.</p>
         <a class="btn" data-wa data-wa-msg="Hola Io, tengo un alojamiento y quiero entender cómo funcionaría Kulmen Seasons a lo largo del año." href="#">Hablemos del año completo <span class="arrow">→</span></a>
       </div>
     </div>
@@ -1318,7 +1279,7 @@
       </details>
       <details class="faq-item">
         <summary>¿Qué es el Mapa de Contenido?<span class="faq-icon" aria-hidden="true"></span></summary>
-        <div class="faq-a">Un documento que va con la entrega y que evita que el material se quede en una carpeta: cómo usar cada pieza, en qué orden publicarlas, qué llamada a la acción poner en cada una, 8-10 ideas de contenido futuro y recomendaciones sobre tu perfil y tu web.</div>
+        <div class="faq-a">Un documento que va con la entrega y que evita que el material se quede en una carpeta: cómo usar cada pieza, en qué orden publicarlas, qué llamada a la acción poner en cada una y recomendaciones sobre tu perfil y tu web.</div>
       </details>
       <details class="faq-item">
         <summary>¿Cuándo tiene sentido pasar a Seasons?<span class="faq-icon" aria-hidden="true"></span></summary>
